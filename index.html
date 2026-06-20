@@ -13,27 +13,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KICKIQ — Trouve le matériel adapté à ton style de jeu</title>
 <meta name="description" content="KICKIQ analyse ton profil joueur — poste, style, terrain, budget — et sélectionne les équipements de football (crampons, protège-tibias, ballons, gants, sacs, maillots et plus) les mieux adaptés à ta façon de jouer.">
+<link rel="canonical" href="https://www.kickiq.eu">
 <!-- Open Graph -->
 <meta property="og:title" content="KICKIQ — Trouve le matériel adapté à ton style de jeu">
 <meta property="og:description" content="Réponds à 6 questions et découvre quels équipements de football correspondent vraiment à ton profil de joueur.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://kickiq.fr">
-<meta property="og:image" content="https://kickiq.fr/og-image.png">
+<meta property="og:url" content="https://www.kickiq.eu">
+<meta property="og:image" content="https://www.kickiq.eu/og-image.png">
 <meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="KICKIQ">
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="KICKIQ — Équipements football par profil joueur">
 <meta name="twitter:description" content="Quiz football gratuit : trouve les équipements faits pour ton poste, ton style et ton budget.">
-<meta name="twitter:image" content="https://kickiq.fr/og-image.png">
-<!-- Google Analytics placeholder -->
+<meta name="twitter:image" content="https://www.kickiq.eu/og-image.png">
+<!-- KICKIQ — suivi d'événements (utilise gtag défini ci-dessus) -->
 <script>
-/* Google Analytics  -  à activer avec ton vrai ID avant le lancement */
-window.dataLayer=window.dataLayer||[];
-function gtag(){dataLayer.push(arguments);}
 function trackEvent(name,params){
-  // GA désactivé en mode fichier local  -  activer sur le serveur
-  if(typeof window.ga_enabled !== 'undefined') gtag('event',name,params||{});
-  console.log('[KICKIQ Track]',name,params||{});
+  try { if(typeof gtag==='function') gtag('event',name,params||{}); } catch(e){}
 }
 </script>
 <style>
@@ -131,8 +128,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:68px;padding:0 48px;d
 
 /* ── PRODUCT VISUALS (SVG, no emoji) ── */
 .pv{width:100%;height:100%;display:block}
-.pv-wrap{position:relative;width:100%;aspect-ratio:16/10;background:radial-gradient(ellipse 80% 70% at 50% 40%,rgba(255,255,255,0.04) 0%,transparent 70%),var(--black3);border-radius:4px;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.pv-wrap::after{content:'';position:absolute;bottom:14%;left:50%;transform:translateX(-50%);width:55%;height:8%;background:radial-gradient(ellipse,rgba(0,0,0,0.55) 0%,transparent 70%);filter:blur(4px)}
+.pv-wrap{position:relative;width:100%;aspect-ratio:16/10;background:radial-gradient(ellipse 80% 70% at 50% 40%,rgba(180,255,46,0.04) 0%,transparent 70%),var(--black3);border-radius:4px;overflow:hidden;display:flex;align-items:center;justify-content:center}
 
 /* PRODUCT CARDS */
 .products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
@@ -141,7 +137,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:68px;padding:0 48px;d
 .product-badge{position:absolute;top:14px;left:14px;font-family:'Space Mono','Courier New',Courier,monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:5px 10px;border-radius:2px;z-index:2}
 .badge-v{background:var(--neon);color:var(--black)}.badge-c{background:var(--blue);color:var(--black)}.badge-p{background:rgba(255,255,255,0.1);color:var(--white);border:1px solid var(--border)}.badge-e{background:var(--red);color:#fff}
 .product-img{height:190px;background:var(--black3);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.product-img .pv-boot{width:78%;transition:transform 0.4s;filter:drop-shadow(0 10px 20px rgba(0,0,0,0.55))}
+.product-img .pv-boot{width:80%;transition:transform 0.4s;filter:drop-shadow(0 4px 14px rgba(0,0,0,0.4))}
 .product-card:hover .product-img .pv-boot{transform:scale(1.06) rotate(-3deg)}
 .product-info{padding:18px}
 .product-brand{font-family:'Space Mono','Courier New',Courier,monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gray);margin-bottom:5px}
@@ -268,7 +264,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .reco-top-badge{position:absolute;top:-1px;right:20px;font-family:'Space Mono','Courier New',Courier,monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;background:var(--neon);color:var(--black);padding:4px 12px;border-radius:0 0 4px 4px;z-index:3}
 .reco-visual{width:100%;margin-bottom:14px}
 .reco-visual .pv-wrap{aspect-ratio:16/9}
-.reco-visual .pv-boot{width:62%;filter:drop-shadow(0 10px 18px rgba(0,0,0,0.5))}
+.reco-visual .pv-boot{width:64%;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.35))}
 .reco-category{font-family:'Space Mono','Courier New',Courier,monospace;font-size:9px;color:var(--neon);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:5px}
 .reco-name{font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:900;font-size:22px;text-transform:uppercase;color:var(--white);margin-bottom:4px;line-height:1}
 .reco-model{font-family:'Space Mono','Courier New',Courier,monospace;font-size:10px;color:var(--gray2);margin-bottom:10px}
@@ -276,8 +272,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 /* SINGLE CTA BUTTON */
 .reco-cta{display:block;width:100%;font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:15px;letter-spacing:0.08em;text-transform:uppercase;color:var(--black);background:var(--neon);border:none;padding:12px 20px;border-radius:2px;cursor:pointer;transition:all 0.2s;text-align:center;text-decoration:none}
 .reco-cta:hover{background:var(--neon2);transform:translateY(-1px);box-shadow:0 6px 20px rgba(180,255,46,0.2)}
-.reco-cta-alt{display:block;width:100%;font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:700;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray2);background:none;border:1px solid var(--border);padding:10px 20px;border-radius:2px;cursor:pointer;transition:all 0.2s;text-align:center;text-decoration:none;margin-top:8px}
-.reco-cta-alt:hover{border-color:rgba(255,255,255,0.3);color:var(--white)}
 
 /* EMAIL */
 .email-form{display:flex;max-width:480px;margin:0 auto}
@@ -502,9 +496,18 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
   .cc-price               { font-size:20px }
   .cc-row                 { font-size:12px }
 
-  /* QUIZ */
-  .quiz-wrap              { padding:0 4px }
-  .quiz-opts.cols3        { grid-template-columns:1fr }
+  /* ── VISUELS PRODUITS — optimisation mobile (style/icônes/couleurs inchangés) ── */
+  /* Catalogue : visuel plus compact pour rééquilibrer image / texte / boutons */
+  .product-img            { height:140px }
+  .product-img .pv-boot   { width:62% }
+  /* Résultats d'analyse (recommandations) */
+  .reco-visual            { margin-bottom:10px }
+  .reco-visual .pv-boot   { width:50% }
+  /* Comparateur — cartes empilées mobile */
+  .cc-visual              { width:96px;margin-bottom:10px }
+  /* Comparateur — vignette produit (si tableau visible) */
+  .cd-prodvisual          { max-width:88px }
+
 
   /* RESULT / RECO */
   .reco-grid              { grid-template-columns:1fr }
@@ -544,9 +547,12 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
   .quiz-dots             { display:none }
   .quiz-back             { padding:12px 18px }
   .quiz-next             { padding:14px 22px;font-size:14px }
-  /* Product cards : image plus compacte */
-  .product-img           { height:150px }
+  /* Product cards : visuel compact sur petits écrans (style inchangé) */
+  .product-img           { height:132px }
+  .product-img .pv-boot  { width:58% }
   .product-info          { padding:12px }
+  .reco-visual .pv-boot  { width:46% }
+  .cc-visual             { width:84px }
 }
 </style>
 </head>
@@ -927,14 +933,14 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
     <div class="about-grid">
       <div>
         <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:26px;text-transform:uppercase;color:var(--white);margin-bottom:16px">Pourquoi KICKIQ existe</h3>
-        <p style="font-size:15px;color:var(--gray2);line-height:1.8;margin-bottom:20px">KICKIQ est né d'un constat simple : quand on cherche des crampons ou du matériel football, on se retrouve noyé sous les options. Les grands sites e-commerce ne filtrent pas selon ton poste, ton niveau ou ton style — ils affichent juste un catalogue.</p>
-        <p style="font-size:15px;color:var(--gray2);line-height:1.8;margin-bottom:20px">L'idée de KICKIQ est de partir du joueur, pas du produit. En répondant à 6 questions, tu obtiens une sélection ciblée de vrais crampons (Nike Mercurial, Adidas Predator, Puma Future, Kipsta…), adaptée à ton budget et ton niveau.</p>
-        <p style="font-size:15px;color:var(--gray2);line-height:1.8">La V1 reste volontairement simple : comprendre le joueur, affiner le choix, puis l'orienter vers les bonnes références via affiliation.</p>
+        <p style="font-size:15px;color:var(--gray2);line-height:1.8;margin-bottom:20px">Face à un marché saturé, s'équiper relève souvent du casse-tête. Les plateformes e-commerce classiques alignent des centaines de références sans jamais tenir compte de ton poste, de ton niveau ou de ta façon de jouer : elles déroulent un catalogue, à toi de t'y retrouver.</p>
+        <p style="font-size:15px;color:var(--gray2);line-height:1.8;margin-bottom:20px">KICKIQ inverse la logique en partant du joueur plutôt que du produit. Six questions suffisent à cerner ton archétype, puis à faire émerger une sélection ciblée de modèles réels — Nike Mercurial, Adidas Predator, Puma Future, Kipsta… — calibrée selon ton budget et ton niveau de pratique.</p>
+        <p style="font-size:15px;color:var(--gray2);line-height:1.8">Pensé et développé par des passionnés de football, KICKIQ vise à devenir la référence francophone de l'équipement sportif personnalisé. La V1 pose les fondations : une approche claire, exigeante et taillée pour le terrain.</p>
       </div>
       <div>
         <div style="background:var(--card);border:1px solid var(--border);border-radius:4px;padding:32px;margin-bottom:20px">
           <h4 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:20px;text-transform:uppercase;color:var(--white);margin-bottom:12px">Comment fonctionnent les recommandations</h4>
-          <p style="font-size:14px;color:var(--gray2);line-height:1.7">Les sélections sont construites à partir de critères réels : poste, niveau, terrain, style de jeu et budget. Chaque profil est associé aux crampons les mieux adaptés sur le marché, en cohérence avec ton budget.</p>
+          <p style="font-size:14px;color:var(--gray2);line-height:1.7">Chaque suggestion repose sur des critères concrets : poste, niveau, terrain, style de jeu et budget. À partir de ce profil, l'algorithme associe à chaque joueur les références les plus pertinentes du marché, dans sa gamme de prix.</p>
         </div>
         <div style="background:rgba(180,255,46,0.05);border:1px solid rgba(180,255,46,0.2);border-radius:4px;padding:28px">
           <h4 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--neon);margin-bottom:10px">Transparence sur l'affiliation</h4>
@@ -945,8 +951,8 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
     <div style="margin-top:52px">
       <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:26px;text-transform:uppercase;color:var(--white);margin-bottom:24px">La roadmap KICKIQ</h3>
       <div class="why-grid">
-        <div class="why-card"><div class="why-icon">✅</div><div class="why-title">V1 — En ligne</div><p class="why-desc">Quiz 6 questions, archétypes joueurs, vrais modèles de crampons calibrés selon le budget, liens affiliés, sélection spéciale Mondial 2026.</p></div>
-        <div class="why-card"><div class="why-icon blue">🚧</div><div class="why-title">V2 — Prochainement</div><p class="why-desc">Fiches produits avec photos, prix en temps réel, historique des prix, comparaisons détaillées et catalogue élargi.</p></div>
+        <div class="why-card"><div class="why-icon">✅</div><div class="why-title">V1 — En ligne</div><p class="why-desc">Quiz intelligent en 6 questions, archétypes de joueurs, vrais modèles de crampons calibrés selon le budget.</p></div>
+        <div class="why-card"><div class="why-icon blue">🚧</div><div class="why-title">V2 — Prochainement</div><p class="why-desc">Fiches produits avec photos, prix en temps réel, historique des prix, comparaisons détaillées, catalogue élargi et sélection spéciale Coupe du Monde 2026.</p></div>
         <div class="why-card"><div class="why-icon">🤖</div><div class="why-title">V3 — KICKIQ AI</div><p class="why-desc">Recommandations IA conversationnelles, profils joueurs sauvegardés, alertes prix, analyse avancée.</p></div>
       </div>
     </div>
@@ -1304,113 +1310,97 @@ function launchLoadingScreen() {
 }
 
 // ════════════════════════════════════════════════════════════
-//  VISUELS PRODUITS (SVG inline, sans emoji, responsives)
-//  Pas de dépendance réseau : tout est rendu en CSS/SVG.
+//  VISUELS PRODUITS — système d'icônes SVG unifié (line-art premium)
+//  Langage graphique commun : trait 4px arrondi, accent de marque,
+//  remplissage subtil. Aucune dépendance réseau.
+//  viewBox commun 240×150, preserveAspectRatio constant.
 // ════════════════════════════════════════════════════════════
-function bootSVG(primary, secondary, sole){
-  return `<div class="pv-wrap"><svg class="pv-boot" viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-    <defs>
-      <linearGradient id="g_${primary.replace('#','')}" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="${secondary}"/><stop offset="1" stop-color="${primary}"/>
-      </linearGradient>
-    </defs>
-    <!-- corps de la chaussure -->
-    <path d="M20 78 C30 56 70 44 118 46 C150 47 186 54 210 70 C222 78 224 90 214 96 C190 108 150 112 110 110 C72 108 40 104 24 96 C16 92 15 86 20 78 Z" fill="url(#g_${primary.replace('#','')})" stroke="rgba(0,0,0,0.25)" stroke-width="1.5"/>
-    <!-- empeigne / laçage -->
-    <path d="M96 52 C112 50 132 51 150 56 C156 58 156 66 150 67 C132 63 112 62 98 64 C92 65 90 54 96 52 Z" fill="rgba(255,255,255,0.18)"/>
-    <path d="M108 56 l30 5 M106 62 l32 5" stroke="rgba(255,255,255,0.35)" stroke-width="1.4" stroke-linecap="round"/>
-    <!-- swoosh / accent de marque -->
-    <path d="M60 86 C90 78 140 80 188 88 C150 86 100 86 60 92 Z" fill="rgba(255,255,255,0.5)"/>
-    <!-- semelle -->
-    <path d="M24 96 C40 104 72 108 110 110 C150 112 190 108 214 96 C216 104 210 112 196 116 C160 124 110 124 72 118 C44 114 22 110 24 96 Z" fill="${sole}"/>
-    <!-- crampons -->
-    <g fill="${sole}">
-      <rect x="48" y="116" width="6" height="10" rx="2"/><rect x="78" y="120" width="6" height="11" rx="2"/>
-      <rect x="110" y="121" width="6" height="11" rx="2"/><rect x="142" y="120" width="6" height="11" rx="2"/>
-      <rect x="174" y="116" width="6" height="10" rx="2"/>
-    </g>
-  </svg></div>`;
+function svgWrap(inner, vb){
+  return `<div class="pv-wrap"><svg class="pv-boot" viewBox="${vb||'0 0 240 150'}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" fill="none" stroke-linecap="round" stroke-linejoin="round">${inner}</svg></div>`;
 }
-function tibiaSVG(primary, secondary){
-  return `<div class="pv-wrap"><svg class="pv-boot" viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-    <defs><linearGradient id="t_${primary.replace('#','')}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${secondary}"/><stop offset="1" stop-color="${primary}"/></linearGradient></defs>
-    <path d="M96 22 C120 18 144 22 150 40 C158 64 160 96 150 124 C144 138 96 138 90 124 C80 96 82 64 90 40 C92 30 92 24 96 22 Z" fill="url(#t_${primary.replace('#','')})" stroke="rgba(0,0,0,0.25)" stroke-width="1.5"/>
-    <path d="M120 30 L120 128" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
-    <ellipse cx="120" cy="74" rx="14" ry="30" fill="rgba(255,255,255,0.14)"/>
-  </svg></div>`;
+// fill subtil dérivé de l'accent (zone de couleur derrière le trait)
+function tint(c){ return c; }
+
+function bootSVG(primary){
+  return svgWrap(`
+    <path d="M28 84 C40 64 78 54 120 56 C150 57 184 62 208 76 C220 83 220 95 208 99 C184 108 150 110 116 108 C82 106 46 102 30 96 C22 93 22 89 28 84 Z" fill="${primary}" fill-opacity="0.16" stroke="${primary}" stroke-width="4"/>
+    <path d="M100 60 C116 58 138 60 154 66" stroke="${primary}" stroke-width="3.5" opacity="0.8"/>
+    <path d="M108 64 l28 5 M106 71 l30 5 M104 78 l30 5" stroke="${primary}" stroke-width="2.6" opacity="0.55"/>
+    <path d="M30 96 C46 102 82 106 116 108 C150 110 184 108 208 99 C210 107 204 113 192 116 C156 124 110 124 74 118 C46 113 26 108 30 96 Z" fill="${primary}" fill-opacity="0.28" stroke="${primary}" stroke-width="4"/>
+    <g stroke="${primary}" stroke-width="4">
+      <path d="M52 116 l0 9"/><path d="M82 120 l0 10"/><path d="M114 121 l0 10"/><path d="M146 120 l0 10"/><path d="M176 116 l0 9"/>
+    </g>`);
+}
+function tibiaSVG(primary){
+  return svgWrap(`
+    <path d="M98 26 C122 22 144 28 150 46 C158 70 158 100 148 126 C142 138 98 138 92 126 C82 100 82 70 90 46 C92 34 94 28 98 26 Z" fill="${primary}" fill-opacity="0.16" stroke="${primary}" stroke-width="4"/>
+    <path d="M120 36 L120 128" stroke="${primary}" stroke-width="3" opacity="0.55"/>
+    <path d="M104 60 C112 54 128 54 136 60 M104 92 C112 86 128 86 136 92" stroke="${primary}" stroke-width="3" opacity="0.7"/>`);
 }
 function ballSVG(primary){
-  return `<div class="pv-wrap"><svg class="pv-boot" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-    <circle cx="75" cy="75" r="52" fill="#f5f5f5" stroke="rgba(0,0,0,0.2)" stroke-width="1.5"/>
-    <path d="M75 40 l18 13 -7 21 -22 0 -7 -21 Z" fill="${primary}"/>
-    <path d="M75 40 L75 27 M93 53 L106 48 M86 74 L98 84 M64 74 L52 84 M57 53 L44 48" stroke="rgba(0,0,0,0.35)" stroke-width="2" stroke-linecap="round"/>
-    <circle cx="75" cy="75" r="52" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="8"/>
-  </svg></div>`;
+  return svgWrap(`
+    <circle cx="120" cy="75" r="52" fill="${primary}" fill-opacity="0.14" stroke="${primary}" stroke-width="4"/>
+    <path d="M120 44 l19 14 -7 22 -24 0 -7 -22 Z" fill="${primary}" fill-opacity="0.5" stroke="${primary}" stroke-width="3.5"/>
+    <path d="M120 44 L120 30 M139 58 L154 53 M132 80 L144 92 M108 80 L96 92 M101 58 L86 53" stroke="${primary}" stroke-width="3.4" opacity="0.7"/>`, '0 0 240 150');
 }
-function gloveSVG(primary, secondary){
-  return `<div class="pv-wrap"><svg class="pv-boot" viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-    <defs><linearGradient id="gl_${primary.replace('#','')}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${secondary}"/><stop offset="1" stop-color="${primary}"/></linearGradient></defs>
-    <path d="M78 70 C78 50 92 44 100 48 L100 40 C100 30 116 30 116 40 L116 44 C116 34 132 34 132 44 L132 48 C132 38 148 38 148 50 L148 70 C160 70 166 84 160 100 C154 118 96 118 84 100 C78 90 78 80 78 70 Z" fill="url(#gl_${primary.replace('#','')})" stroke="rgba(0,0,0,0.25)" stroke-width="1.5"/>
-    <path d="M84 108 C96 120 152 120 158 104 L160 120 C150 134 94 134 84 120 Z" fill="rgba(0,0,0,0.2)"/>
-  </svg></div>`;
+function gloveSVG(primary){
+  return svgWrap(`
+    <path d="M84 74 C84 54 98 48 106 52 L106 44 C106 33 122 33 122 44 L122 48 C122 37 138 37 138 48 L138 52 C138 41 154 41 154 54 L154 74 C166 74 172 88 165 104 C158 122 100 122 88 104 C82 94 84 84 84 74 Z" fill="${primary}" fill-opacity="0.16" stroke="${primary}" stroke-width="4"/>
+    <path d="M106 52 L106 74 M122 48 L122 74 M138 52 L138 74" stroke="${primary}" stroke-width="3" opacity="0.55"/>
+    <path d="M88 104 C100 116 156 116 162 100" stroke="${primary}" stroke-width="4"/>`);
 }
-function jerseySVG(primary, secondary){
-  const id='j_'+primary.replace('#','');
-  return `<div class="pv-wrap"><svg class="pv-boot" viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-    <defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${secondary}"/><stop offset="1" stop-color="${primary}"/></linearGradient></defs>
-    <path d="M96 30 L70 42 L52 70 L66 82 L78 70 L78 124 C78 130 84 134 90 134 L150 134 C156 134 162 130 162 124 L162 70 L174 82 L188 70 L170 42 L144 30 C140 44 100 44 96 30 Z" fill="url(#${id})" stroke="rgba(0,0,0,0.25)" stroke-width="1.5"/>
-    <path d="M96 30 C100 44 140 44 144 30 C138 36 102 36 96 30 Z" fill="rgba(255,255,255,0.2)"/>
-    <path d="M120 46 L120 130" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
-  </svg></div>`;
+function jerseySVG(primary){
+  return svgWrap(`
+    <path d="M98 32 L72 44 L54 72 L68 84 L80 72 L80 124 C80 130 86 134 92 134 L148 134 C154 134 160 130 160 124 L160 72 L172 84 L186 72 L168 44 L142 32 C138 46 102 46 98 32 Z" fill="${primary}" fill-opacity="0.16" stroke="${primary}" stroke-width="4"/>
+    <path d="M98 32 C102 46 138 46 142 32" stroke="${primary}" stroke-width="3.5" opacity="0.8"/>
+    <path d="M120 48 L120 130" stroke="${primary}" stroke-width="3" opacity="0.4"/>`);
 }
-function shortsSVG(primary, secondary){
-  const id='sh_'+primary.replace('#','');
-  return `<div class="pv-wrap"><svg class="pv-boot" viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-    <defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${secondary}"/><stop offset="1" stop-color="${primary}"/></linearGradient></defs>
-    <path d="M76 40 L164 40 C168 40 170 44 170 48 L168 108 C168 114 162 118 156 118 L134 118 C130 118 128 114 126 110 L120 84 L114 110 C112 114 110 118 106 118 L84 118 C78 118 72 114 72 108 L70 48 C70 44 72 40 76 40 Z" fill="url(#${id})" stroke="rgba(0,0,0,0.25)" stroke-width="1.5"/>
-    <path d="M76 40 L164 40 L163 52 L77 52 Z" fill="rgba(255,255,255,0.18)"/>
-    <path d="M120 56 L120 86" stroke="rgba(0,0,0,0.18)" stroke-width="2"/>
-  </svg></div>`;
+function shortsSVG(primary){
+  return svgWrap(`
+    <path d="M78 42 L162 42 C166 42 168 46 168 50 L166 106 C166 112 160 116 154 116 L134 116 C130 116 128 112 126 108 L120 84 L114 108 C112 112 110 116 106 116 L86 116 C80 116 74 112 74 106 L72 50 C72 46 74 42 78 42 Z" fill="${primary}" fill-opacity="0.16" stroke="${primary}" stroke-width="4"/>
+    <path d="M78 54 L162 54" stroke="${primary}" stroke-width="3.5" opacity="0.7"/>
+    <path d="M120 58 L120 86" stroke="${primary}" stroke-width="3" opacity="0.5"/>`);
 }
-function backpackSVG(primary, secondary){
-  const id='bp_'+primary.replace('#','');
-  return `<div class="pv-wrap"><svg class="pv-boot" viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-    <defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${secondary}"/><stop offset="1" stop-color="${primary}"/></linearGradient></defs>
-    <path d="M96 30 C96 18 144 18 144 30 L150 38 C168 44 174 60 174 82 L174 118 C174 128 168 134 158 134 L82 134 C72 134 66 128 66 118 L66 82 C66 60 72 44 90 38 Z" fill="url(#${id})" stroke="rgba(0,0,0,0.25)" stroke-width="1.5"/>
-    <rect x="92" y="64" width="56" height="44" rx="6" fill="rgba(0,0,0,0.18)"/>
-    <path d="M104 30 C104 22 136 22 136 30" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="3"/>
-    <rect x="112" y="112" width="16" height="14" rx="3" fill="rgba(255,255,255,0.15)"/>
-  </svg></div>`;
+function backpackSVG(primary){
+  return svgWrap(`
+    <path d="M94 34 C94 22 146 22 146 34 L150 42 C168 48 174 64 174 84 L174 118 C174 128 168 132 158 132 L82 132 C72 132 66 128 66 118 L66 84 C66 64 72 48 90 42 Z" fill="${primary}" fill-opacity="0.16" stroke="${primary}" stroke-width="4"/>
+    <rect x="92" y="66" width="56" height="42" rx="8" stroke="${primary}" stroke-width="3.4" opacity="0.7"/>
+    <path d="M106 34 C106 26 134 26 134 34" stroke="${primary}" stroke-width="3.4" opacity="0.8"/>
+    <path d="M112 114 l16 0" stroke="${primary}" stroke-width="3.4" opacity="0.6"/>`);
 }
-function dufflebagSVG(primary, secondary){
-  const id='db_'+primary.replace('#','');
-  return `<div class="pv-wrap"><svg class="pv-boot" viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-    <defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${secondary}"/><stop offset="1" stop-color="${primary}"/></linearGradient></defs>
-    <rect x="44" y="62" width="152" height="62" rx="28" fill="url(#${id})" stroke="rgba(0,0,0,0.25)" stroke-width="1.5"/>
-    <path d="M96 62 C96 50 144 50 144 62" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="4"/>
-    <rect x="108" y="74" width="24" height="38" rx="4" fill="rgba(0,0,0,0.2)"/>
-    <path d="M44 92 L196 92" stroke="rgba(0,0,0,0.15)" stroke-width="2"/>
-  </svg></div>`;
+function dufflebagSVG(primary){
+  return svgWrap(`
+    <rect x="46" y="60" width="148" height="64" rx="30" fill="${primary}" fill-opacity="0.16" stroke="${primary}" stroke-width="4"/>
+    <path d="M98 60 C98 48 142 48 142 60" stroke="${primary}" stroke-width="4"/>
+    <rect x="108" y="74" width="24" height="36" rx="6" stroke="${primary}" stroke-width="3.2" opacity="0.7"/>
+    <path d="M46 92 L194 92" stroke="${primary}" stroke-width="3" opacity="0.4"/>`);
+}
+function sockSVG(primary){
+  return svgWrap(`
+    <path d="M104 26 L138 26 C142 26 144 30 144 34 L144 78 C144 86 150 92 158 98 C170 106 172 120 162 128 C150 136 130 132 122 120 L110 102 C106 96 104 88 104 80 Z" fill="${primary}" fill-opacity="0.16" stroke="${primary}" stroke-width="4"/>
+    <path d="M104 40 L144 40 M104 52 L144 52" stroke="${primary}" stroke-width="3.2" opacity="0.6"/>`);
 }
 
-// Banque de visuels par clé (marque → couleurs)
+// Banque de visuels par clé (accent = couleur de marque/catégorie)
+const C_NEON='#B4FF2E', C_BLUE='#1BFFFF', C_RED='#FF6A3B', C_GRAY='#8a8a8a', C_DARK='#5a5a5a';
 const PV = {
-  boot_neon:  bootSVG('#7BC00F','#B4FF2E','#0e0e0e'),
-  boot_blue:  bootSVG('#0FB7C0','#1BFFFF','#0e0e0e'),
-  boot_red:   bootSVG('#C0260F','#FF6A3B','#0e0e0e'),
-  boot_gray:  bootSVG('#4a4a4a','#8a8a8a','#0e0e0e'),
-  boot_dark:  bootSVG('#1a1a1a','#3a3a3a','#000'),
-  tibia_neon: tibiaSVG('#7BC00F','#B4FF2E'),
-  tibia_gray: tibiaSVG('#3a3a3a','#6a6a6a'),
-  ball_neon:  ballSVG('#B4FF2E'),
-  ball_blue:  ballSVG('#1BFFFF'),
-  glove_neon: gloveSVG('#7BC00F','#B4FF2E'),
-  jersey_neon: jerseySVG('#7BC00F','#B4FF2E'),
-  jersey_blue: jerseySVG('#0FB7C0','#1BFFFF'),
-  shorts_dark: shortsSVG('#1a1a1a','#3a3a3a'),
-  shorts_neon: shortsSVG('#7BC00F','#B4FF2E'),
-  backpack_dark: backpackSVG('#1a1a1a','#3a3a3a'),
-  bag:        dufflebagSVG('#222','#444')
+  boot_neon:  bootSVG(C_NEON),
+  boot_blue:  bootSVG(C_BLUE),
+  boot_red:   bootSVG(C_RED),
+  boot_gray:  bootSVG(C_GRAY),
+  boot_dark:  bootSVG(C_DARK),
+  tibia_neon: tibiaSVG(C_NEON),
+  tibia_gray: tibiaSVG(C_GRAY),
+  ball_neon:  ballSVG(C_NEON),
+  ball_blue:  ballSVG(C_BLUE),
+  glove_neon: gloveSVG(C_NEON),
+  jersey_neon: jerseySVG(C_NEON),
+  jersey_blue: jerseySVG(C_BLUE),
+  shorts_dark: shortsSVG(C_GRAY),
+  shorts_neon: shortsSVG(C_NEON),
+  backpack_dark: backpackSVG(C_GRAY),
+  sock_neon:  sockSVG(C_NEON),
+  bag:        dufflebagSVG(C_GRAY)
 };
 function pv(key){ return PV[key] || PV.boot_dark; }
 
@@ -1488,7 +1478,7 @@ const products = {
     '>200':   {name:'Nike Flight Official',           brand:'Nike',      price:'54,99€', tag:'Pro',      image:'ball_blue', affiliateUrl:'#'},
   },
   // ACCESSOIRES (prix fixe, tous budgets)
-  chaussettes: {name:'Kipsta Chaussettes Football', brand:'Decathlon', price:'5,99€',  tag:'Grip',       image:'tibia_neon', affiliateUrl:'#'},
+  chaussettes: {name:'Kipsta Chaussettes Football', brand:'Decathlon', price:'5,99€',  tag:'Grip',       image:'sock_neon', affiliateUrl:'#'},
   sac:         {name:'Sac de sport football 30L',   brand:'Decathlon', price:'19,99€', tag:'Accessoire', image:'bag',        affiliateUrl:'#'},
 };
 
@@ -1543,8 +1533,8 @@ const catalogue = [
   { id:'sh02', name:'Short Tiro 24', brand:'Adidas', category:'Shorts', price:'18,99€', model:'Tiro 24 Short', profileFit:'Polyvalent', priority:'Confort', touch:0, traction:0, protection:0, comfort:88, advantages:'Confortable, tissu respirant', disadvantages:'Coupe standard', image:'shorts_neon', affiliateUrl:'#' },
 
   // ── ACCESSOIRES ──
-  { id:'ac01', name:'Chaussettes Grip', brand:'Decathlon', category:'Accessoires', price:'5,99€', model:'Chaussettes Football Grip', profileFit:'Polyvalent', priority:'Confort', touch:0, traction:60, protection:0, comfort:88, advantages:'Maintien du pied, évite les glissements', disadvantages:'Durée de vie du grip limitée', image:'tibia_neon', affiliateUrl:'#' },
-  { id:'ac02', name:'Chaussettes Match', brand:'Nike', category:'Accessoires', price:'9,99€', model:'Academy Over-the-Calf', profileFit:'Polyvalent', priority:'Confort', touch:0, traction:0, protection:0, comfort:86, advantages:'Maintien, confort sur 90 minutes', disadvantages:'Prix un peu plus élevé', image:'tibia_neon', affiliateUrl:'#' },
+  { id:'ac01', name:'Chaussettes Grip', brand:'Decathlon', category:'Accessoires', price:'5,99€', model:'Chaussettes Football Grip', profileFit:'Polyvalent', priority:'Confort', touch:0, traction:60, protection:0, comfort:88, advantages:'Maintien du pied, évite les glissements', disadvantages:'Durée de vie du grip limitée', image:'sock_neon', affiliateUrl:'#' },
+  { id:'ac02', name:'Chaussettes Match', brand:'Nike', category:'Accessoires', price:'9,99€', model:'Academy Over-the-Calf', profileFit:'Polyvalent', priority:'Confort', touch:0, traction:0, protection:0, comfort:86, advantages:'Maintien, confort sur 90 minutes', disadvantages:'Prix un peu plus élevé', image:'sock_neon', affiliateUrl:'#' },
 ];
 
 const CATALOGUE_CATEGORIES = ['Crampons','Protège-tibias','Ballons','Gants de gardien','Sacs','Maillots','Shorts','Accessoires'];
@@ -2096,12 +2086,17 @@ function submitEmail(){
   kiqToast('OK : inscription confirmée — à bientôt !','success');
 }
 function submitContact(){
-  const name=document.getElementById('contactName').value;
-  const email=document.getElementById('contactEmail').value;
-  const msg=document.getElementById('contactMessage').value;
+  const name=document.getElementById('contactName').value.trim();
+  const email=document.getElementById('contactEmail').value.trim();
+  const msg=document.getElementById('contactMessage').value.trim();
   if(!name||!email||!msg){kiqToast('Merci de remplir tous les champs.','error');return;}
-  ['contactName','contactEmail','contactMessage'].forEach(id=>{document.getElementById(id).value='';});
-  kiqToast('OK : message envoyé — merci !','success');
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){kiqToast('Saisis une adresse email valide.','error');return;}
+  // V1 sans backend : ouvre le client mail pré-rempli vers l'adresse KICKIQ.
+  const subject=encodeURIComponent('Contact KICKIQ — '+name);
+  const body=encodeURIComponent(msg+'\n\n—\nNom : '+name+'\nEmail : '+email);
+  trackEvent('contact_submit',{});
+  window.location.href='mailto:contact@kickiq.eu?subject='+subject+'&body='+body;
+  kiqToast('Ton client mail va s\u2019ouvrir pour finaliser l\u2019envoi.','success');
 }
 
 // ════════════════════════════════════════════════════════════
