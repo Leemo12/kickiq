@@ -122,8 +122,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:68px;padding:0 48px;d
 .section-title .dim{color:rgba(255,255,255,0.2)}
 .section-sub{font-size:15px;color:var(--gray2);font-weight:300;line-height:1.6;max-width:520px;margin-top:14px}
 .section-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px}
-.view-all{font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:700;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:var(--neon);text-decoration:none;display:flex;align-items:center;gap:8px;transition:gap 0.2s;cursor:pointer;background:none;border:none}
-.view-all:hover{gap:14px}
 
 /* WHY */
 .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -281,14 +279,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .reco-cta{display:block;width:100%;font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:15px;letter-spacing:0.08em;text-transform:uppercase;color:var(--black);background:var(--neon);border:none;padding:12px 20px;border-radius:2px;cursor:pointer;transition:all 0.2s;text-align:center;text-decoration:none}
 .reco-cta:hover{background:var(--neon2);transform:translateY(-1px);box-shadow:0 6px 20px rgba(180,255,46,0.2)}
 
-/* EMAIL */
-.email-form{display:flex;max-width:480px;margin:0 auto}
-.email-input{flex:1;background:var(--card);border:1px solid var(--border);border-right:none;padding:15px 18px;font-family:'Barlow',Arial,Helvetica,sans-serif;font-size:14px;color:var(--white);outline:none;border-radius:2px 0 0 2px;transition:border-color 0.2s}
-.email-input:focus{border-color:rgba(180,255,46,0.4)}
-.email-input::placeholder{color:var(--gray)}
-.email-submit{font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--black);background:var(--neon);border:none;padding:15px 26px;cursor:pointer;transition:all 0.2s;border-radius:0 2px 2px 0;white-space:nowrap}
-.email-submit:hover{background:var(--neon2)}
-
 /* COMPARE TABLE */
 .compare-table{background:var(--card);border:1px solid var(--border);border-radius:4px;overflow:hidden}
 .compare-row{display:grid;grid-template-columns:200px 1fr 1fr 1fr;border-bottom:1px solid var(--border)}
@@ -311,7 +301,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 
 /* AI SECTION */
 .ai-card{background:linear-gradient(135deg,rgba(27,255,255,0.05) 0%,rgba(180,255,46,0.03) 100%);border:1px solid rgba(27,255,255,0.15);border-radius:6px;padding:48px;text-align:center;position:relative;overflow:hidden}
-.ai-card::before{content:'🤖';font-size:140px;position:absolute;right:-20px;bottom:-20px;opacity:0.05}
 .ai-badge{font-family:'Space Mono','Courier New',Courier,monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);background:rgba(27,255,255,0.1);border:1px solid rgba(27,255,255,0.2);display:inline-block;padding:6px 14px;border-radius:2px;margin-bottom:16px}
 .ai-title{font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:900;font-size:clamp(36px,5vw,56px);text-transform:uppercase;line-height:0.92;color:var(--white);margin-bottom:12px}
 .ai-title span{color:var(--blue)}
@@ -542,13 +531,11 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
 /* ── PETIT MOBILE 600px ── */
 @media(max-width:600px){
   .hero h1               { font-size:44px }
+  .section-title         { font-size:32px }
   .products-grid         { grid-template-columns:1fr }
   .pitch-layout          { grid-template-columns:repeat(2,1fr) }
   .playstyle-grid        { grid-template-columns:repeat(2,1fr) }
   .section-header        { flex-direction:column;gap:14px;align-items:flex-start }
-  .email-form            { flex-direction:column }
-  .email-input           { border-right:1px solid var(--border);border-bottom:none;border-radius:2px 2px 0 0 }
-  .email-submit          { border-radius:0 0 2px 2px }
   .footer-grid           { grid-template-columns:1fr }
   .profil-stats          { grid-template-columns:repeat(2,1fr) }
   .quiz-nav              { gap:12px }
@@ -586,14 +573,13 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
 <div class="mob-drawer" id="mobDrawer">
   <div style="margin-bottom:8px;font-family:'Space Mono','Courier New',Courier,monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--neon)">Navigation</div>
   <div class="mob-link" onclick="showPage('home');toggleMob()"><span class="mob-link-icon">🏠</span><span class="mob-link-name">Accueil</span></div>
-  <div class="mob-link" onclick="showPage('quiz');toggleMob();trackEvent('quiz_started',{source:'mobile_nav'})"><span class="mob-link-icon">⚽</span><span class="mob-link-name">Analyse Profil</span></div>
   <div class="mob-link" onclick="showPage('comparateur');toggleMob()"><span class="mob-link-icon">📊</span><span class="mob-link-name">Comparateur</span><span class="compare-count">0</span></div>
   <div class="mob-link" onclick="showPage('equipements');toggleMob()"><span class="mob-link-icon">👟</span><span class="mob-link-name">Catalogue</span></div>
   <div class="mob-link" onclick="showPage('about');toggleMob()"><span class="mob-link-icon">💡</span><span class="mob-link-name">À propos</span></div>
   <div class="mob-link" onclick="showPage('contact');toggleMob()"><span class="mob-link-icon">✉️</span><span class="mob-link-name">Contact</span></div>
   <div class="mob-ctas">
     <button class="btn-ghost" style="flex:1" onclick="showPage('quiz');toggleMob()">Commencer</button>
-    <button class="btn-neon" style="flex:1" onclick="showPage('quiz');toggleMob()">Mon Setup</button>
+    <button class="btn-neon" style="flex:1" onclick="showPage('quiz');toggleMob()">Mon Analyse</button>
   </div>
 </div>
 
@@ -712,19 +698,6 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
     <div class="why-card"><div class="why-icon blue">🎮</div><div class="why-title">Styles FC 26</div><p class="why-desc">Les profils de jeu rendent l'expérience plus parlante pour les joueurs de 14 à 35 ans.</p></div>
     <div class="why-card"><div class="why-icon">🌍</div><div class="why-title">Timing Coupe du Monde</div><p class="why-desc">Lancé au moment du Mondial 2026 pour accompagner les joueurs et les passionnés pendant la compétition.</p></div>
     <div class="why-card"><div class="why-icon blue">🤖</div><div class="why-title">KICKIQ AI — Bientôt</div><p class="why-desc">Une couche IA pour un matching encore plus fin, un suivi de profil et des alertes prix en temps réel.</p></div>
-  </div>
-</section>
-
-<section style="background:var(--black2);padding:72px 48px;text-align:center" id="newsletter">
-  <div style="max-width:580px;margin:0 auto">
-    <div class="section-eyebrow" style="justify-content:center">Rejoins KICKIQ</div>
-    <h2 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:900;font-size:clamp(36px,5vw,52px);text-transform:uppercase;line-height:0.92;margin-bottom:14px">Reçois les meilleures <span style="color:var(--neon)">sélections matériel</span></h2>
-    <p style="font-size:15px;color:var(--gray2);margin-bottom:32px;line-height:1.6">Nouvelles sorties, bons plans crampons, sélections par profil joueur et actu Coupe du Monde 2026 — directement dans ta boîte mail.</p>
-    <div class="email-form">
-      <input type="email" class="email-input" placeholder="ton@email.com" id="emailNewsletter">
-      <button class="email-submit" onclick="submitEmail()">M'inscrire →</button>
-    </div>
-    <p style="font-size:11px;color:var(--gray);margin-top:12px;font-family:'Space Mono','Courier New',Courier,monospace">Pas de spam · Football uniquement · Désinscription libre</p>
   </div>
 </section>
 
@@ -1041,7 +1014,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
       <div>
         <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Données collectées</h3>
         <p>KICKIQ ne collecte aucune donnée personnelle sans ton consentement. Le quiz de recommandation fonctionne entièrement en mémoire locale, sans envoi de données vers un serveur. Aucun compte utilisateur n'est requis.</p>
-        <p style="margin-top:10px">Si tu t'inscris à la newsletter, ton adresse email est collectée dans le seul but de t'envoyer les communications KICKIQ. Elle n'est ni vendue ni transmise à des tiers.</p>
+        <p style="margin-top:10px">Si tu nous écris via le formulaire de contact, ton nom et ton adresse email sont utilisés uniquement pour te répondre. Ces informations ne sont ni vendues ni transmises à des tiers.</p>
       </div>
       <div>
         <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Cookies & analytique</h3>
@@ -1162,6 +1135,15 @@ function showPage(id) {
   document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
   if(id==='comparateur') renderComparateur();
   if(id==='equipements') renderCatalogue();
+  // Entrée sur le quiz : repartir d'un état propre si une analyse précédente
+  // est restée en chargement OU a déjà produit un résultat (sinon le quiz
+  // rouvrirait sur la dernière question au lieu de la première).
+  if(id==='quiz'){
+    const ld=document.getElementById('quizLoading');
+    const loadingStuck = ld && ld.classList.contains('active');
+    const recoDone = document.getElementById('recoCrampons') && document.getElementById('recoCrampons').innerHTML.trim()!=='';
+    if(loadingStuck || recoDone){ resetQuizState(); updateQuizUI(); }
+  }
   setTimeout(setupAnimations, 120);
 }
 
@@ -1245,19 +1227,34 @@ function quizNext() {
 function quizPrev() { if(quizStep>1){ quizStep--; updateQuizUI(); } }
 
 function startQuizFromPos(pos) {
-  quizData.position=pos; quizStep=3;
-  showPage('quiz'); updateQuizUI();
+  resetQuizState();
+  showPage('quiz');
+  quizData.position=pos; quizStep=3; updateQuizUI();
   trackEvent('quiz_started',{source:'position_card',position:pos});
 }
 function startQuizFromStyle(style) {
-  quizData.style=style; quizStep=2;
-  showPage('quiz'); updateQuizUI();
+  resetQuizState();
+  showPage('quiz');
+  quizData.style=style; quizStep=2; updateQuizUI();
   trackEvent('quiz_started',{source:'style_card',style:style});
 }
 
 // ── RECOMMENCER : réinitialisation complète ──
-function restartQuiz() {
-  // Réinitialiser toutes les réponses
+// Registre des timers du quiz (chargement) pour pouvoir les annuler proprement.
+var _quizTimers = [];
+function clearQuizTimers(){
+  _quizTimers.forEach(t=>clearTimeout(t));
+  _quizTimers = [];
+}
+
+// Réinitialise INTÉGRALEMENT l'état du quiz : réponses, étape, écran de
+// chargement (classes active/done des étapes ql), progression, résultats,
+// classes selected/active/done, timers actifs et style GK/standard.
+function resetQuizState(){
+  // 1. Annuler tout timer de chargement encore en cours
+  clearQuizTimers();
+
+  // 2. Réponses utilisateur + étape
   quizData.age=16;
   quizData.position=null;
   quizData.niveau=null;
@@ -1266,24 +1263,36 @@ function restartQuiz() {
   quizData.budget=null;
   quizStep=1;
 
-  // Effacer le profil / score / recommandations précédents
+  // 3. Effacer profil / score / recommandations précédents
   ['recoCrampons','recoProtege','recoAccessoires','profilTags','profilStats'].forEach(id=>{
     const el=document.getElementById(id); if(el) el.innerHTML='';
   });
   const cSub=document.getElementById('compatSub'); if(cSub) cSub.textContent='';
   const cText=document.getElementById('compatScoreText'); if(cText) cText.textContent='';
 
-  // Réinitialiser l'UI du quiz
+  // 4. Réinitialiser l'écran de chargement (classes + barre + titre)
+  const loading=document.getElementById('quizLoading'); if(loading) loading.classList.remove('active');
+  ['ql1','ql2','ql3','ql4'].forEach(id=>{
+    const el=document.getElementById(id); if(el){ el.classList.remove('active'); el.classList.remove('done'); }
+  });
+  const progFill=document.getElementById('qlProgressFill'); if(progFill) progFill.style.width='0%';
+
+  // 5. Réinitialiser l'UI des questions
   document.querySelectorAll('.quiz-opt').forEach(o=>o.classList.remove('selected'));
+  for(let i=1;i<=QUIZ_STEPS;i++){ const s=document.getElementById('qs'+i); if(s) s.classList.remove('active'); }
   const slider=document.getElementById('ageSlider'); if(slider) slider.value=16;
   const disp=document.getElementById('ageDisplay'); if(disp) disp.textContent='16';
   const nav=document.getElementById('quizNav'); if(nav) nav.style.display='flex';
-  const loading=document.getElementById('quizLoading'); if(loading) loading.classList.remove('active');
-  // Réinitialiser le style GK/standard
+
+  // 6. Réinitialiser le style GK/standard
   const std=document.getElementById('qs5-standard'); if(std) std.style.display='block';
   const gk=document.getElementById('qs5-gk'); if(gk) gk.style.display='none';
+}
 
-  showPage('quiz'); updateQuizUI();
+function restartQuiz() {
+  resetQuizState();
+  showPage('quiz');
+  updateQuizUI();
   trackEvent('quiz_restarted',{});
 }
 
@@ -1293,28 +1302,45 @@ function restartQuiz() {
 function launchLoadingScreen() {
   trackEvent('quiz_completed', {position:quizData.position, style:quizData.style, budget:quizData.budget});
 
+  // Repartir d'un état de chargement propre (évite tout blocage au 2e lancement)
+  clearQuizTimers();
   for(let i=1;i<=QUIZ_STEPS;i++){ const s=document.getElementById('qs'+i); if(s) s.classList.remove('active'); }
   const nav=document.getElementById('quizNav'); if(nav) nav.style.display='none';
 
-  const loading=document.getElementById('quizLoading');
-  loading.classList.add('active');
-
   const steps=['ql1','ql2','ql3','ql4'];
-  const delays=[0,700,1400,2100];
-  var msgs=['Analyse du profil...','Identification de l\'archetype...','Selection du materiel...','Optimisation en cours...'];
   const progFill=document.getElementById('qlProgressFill');
   const qlTitle=document.getElementById('qlTitle');
+  // Réinitialiser les étapes de chargement AVANT de relancer l'animation
+  steps.forEach(id=>{ const el=document.getElementById(id); if(el){ el.classList.remove('active'); el.classList.remove('done'); } });
+  if(progFill) progFill.style.width='0%';
+
+  const loading=document.getElementById('quizLoading');
+  if(loading) loading.classList.add('active');
+
+  const delays=[0,700,1400,2100];
+  var msgs=['Analyse du profil...','Identification de l\'archetype...','Selection du materiel...','Optimisation en cours...'];
 
   steps.forEach((id,i)=>{
-    setTimeout(()=>{
+    _quizTimers.push(setTimeout(()=>{
       if(i>0){ const prev=document.getElementById(steps[i-1]); if(prev){prev.classList.remove('active');prev.classList.add('done');} }
       const el=document.getElementById(id); if(el) el.classList.add('active');
       if(qlTitle) qlTitle.textContent=msgs[i];
       if(progFill) progFill.style.width=((i+1)/steps.length*100)+'%';
-    },delays[i]);
+    },delays[i]));
   });
 
-  setTimeout(()=>{ generateResult(); }, 2800);
+  // Génération du résultat (timer tracké → annulable si restart pendant le chargement)
+  _quizTimers.push(setTimeout(()=>{ generateResult(); }, 2800));
+
+  // Filet de sécurité : si pour une raison quelconque le résultat ne s'affiche
+  // pas, l'écran de chargement ne doit jamais rester bloqué indéfiniment.
+  _quizTimers.push(setTimeout(()=>{
+    const ld=document.getElementById('quizLoading');
+    const resultActive=document.getElementById('page-result') && document.getElementById('page-result').classList.contains('active');
+    if(ld && ld.classList.contains('active') && !resultActive){
+      try { generateResult(); } catch(e){ ld.classList.remove('active'); }
+    }
+  }, 4500));
 }
 
 // ════════════════════════════════════════════════════════════
@@ -2026,6 +2052,10 @@ function generateResult() {
     renderRecoCard(ballon,'Ballon', getBallonWhy(key), true)+
     renderRecoCard(sac,'Sac de sport','Pour transporter et protéger tout ton matériel en un seul sac.',false);
 
+  // Le résultat est prêt : masquer l'écran de chargement et neutraliser
+  // les timers restants (filet de sécurité inclus) pour éviter tout rappel.
+  const loading=document.getElementById('quizLoading'); if(loading) loading.classList.remove('active');
+  clearQuizTimers();
   showPage('result');
 
   setTimeout(()=>{
@@ -2086,13 +2116,6 @@ function setupAnimations(){
 // ════════════════════════════════════════════════════════════
 //  FORMS
 // ════════════════════════════════════════════════════════════
-function submitEmail(){
-  const v=document.getElementById('emailNewsletter').value;
-  if(!v||!v.includes('@')){kiqToast('Saisis une adresse email valide.','error');return;}
-  document.getElementById('emailNewsletter').value='';
-  trackEvent('newsletter_signup',{source:'homepage'});
-  kiqToast('OK : inscription confirmée — à bientôt !','success');
-}
 function submitContact(){
   const name=document.getElementById('contactName').value.trim();
   const email=document.getElementById('contactEmail').value.trim();
