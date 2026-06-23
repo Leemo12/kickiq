@@ -11,11 +11,37 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KICKIQ — Trouve le matériel adapté à ton style de jeu</title>
-<meta name="description" content="KICKIQ analyse ton profil joueur — poste, style, terrain, budget — et sélectionne les équipements de football (crampons, protège-tibias, ballons, gants, sacs, maillots et plus) les mieux adaptés à ta façon de jouer.">
+<title>KICKIQ — Trouve l'équipement adapté à ton style</title>
+<meta name="description" content="KICKIQ analyse ton profil de joueur et te recommande les équipements de football les mieux adaptés à ton poste, ton style et ton budget.">
 <link rel="canonical" href="https://www.kickiq.eu">
+<!-- Données structurées (Schema.org) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.kickiq.eu/#website",
+      "url": "https://www.kickiq.eu",
+      "name": "KICKIQ",
+      "description": "Trouve l'équipement adapté à ton style",
+      "inLanguage": "fr-FR",
+      "publisher": { "@id": "https://www.kickiq.eu/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.kickiq.eu/#organization",
+      "name": "KICKIQ",
+      "url": "https://www.kickiq.eu",
+      "description": "KICKIQ analyse le profil du joueur et recommande les équipements de football adaptés à son style de jeu.",
+      "logo": "https://www.kickiq.eu/og-image.png",
+      "email": "contact@kickiq.eu"
+    }
+  ]
+}
+</script>
 <!-- Open Graph -->
-<meta property="og:title" content="KICKIQ — Trouve le matériel adapté à ton style de jeu">
+<meta property="og:title" content="KICKIQ — Trouve l'équipement adapté à ton style">
 <meta property="og:description" content="Réponds à 6 questions et découvre quels équipements de football correspondent vraiment à ton profil de joueur.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.kickiq.eu">
@@ -557,7 +583,6 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
   <div class="nav-logo" onclick="showPage('home')">KICK<span>IQ</span></div>
   <div class="nav-center">
     <button class="nav-link" onclick="showPage('home')">Accueil</button>
-    <button class="nav-link" onclick="showPage('quiz')">Analyse</button>
     <button class="nav-link" onclick="showPage('comparateur')">Comparateur<span class="compare-count">0</span></button>
     <button class="nav-link" onclick="showPage('equipements')">Catalogue</button>
     <button class="nav-link" onclick="showPage('about')">À propos</button>
@@ -565,7 +590,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
   </div>
   <div class="nav-actions">
     <button class="btn-ghost" onclick="showPage('equipements')">Voir le catalogue</button>
-    <button class="btn-neon" onclick="showPage('quiz');trackEvent('quiz_started',{source:'nav_cta'})">Trouver mon setup</button>
+    <button class="btn-neon" onclick="showPage('quiz');trackEvent('quiz_started',{source:'nav_cta'})">Mon Analyse</button>
     <button class="nav-hamburger" id="navHam" onclick="toggleMob()"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -1504,14 +1529,47 @@ const products = {
     '100-200':{name:'Adidas Tiro Match',          brand:'Adidas',    price:'34,99€', tag:'Renforcé', image:'tibia_gray', affiliateUrl:'#'},
     '>200':   {name:'Puma Ultra Flex',            brand:'Puma',      price:'39,99€', tag:'Elite',    image:'tibia_gray', affiliateUrl:'#'},
   },
-  // BALLON
+  // BALLONS — variés selon le profil de jeu
+  ballon_vitesse: {
+    '<50':    {name:'Kipsta F500 Light',          brand:'Decathlon', price:'12,99€', tag:'Léger',     image:'ball_neon', affiliateUrl:'#'},
+    '50-100': {name:'Nike Academy Football',      brand:'Nike',      price:'27,99€', tag:'Réactif',   image:'ball_neon', affiliateUrl:'#'},
+    '100-200':{name:'Nike Flight Aerowsculpt',    brand:'Nike',      price:'44,99€', tag:'Vitesse',   image:'ball_neon', affiliateUrl:'#'},
+    '>200':   {name:'Nike Flight Official',       brand:'Nike',      price:'54,99€', tag:'Pro',       image:'ball_neon', affiliateUrl:'#'},
+  },
+  ballon_controle: {
+    '<50':    {name:'Kipsta F500 Hybride',        brand:'Decathlon', price:'14,99€', tag:'Précision', image:'ball_blue', affiliateUrl:'#'},
+    '50-100': {name:'Adidas Tiro Training',       brand:'Adidas',    price:'29,99€', tag:'Précision', image:'ball_blue', affiliateUrl:'#'},
+    '100-200':{name:'Adidas Tiro League Ball',    brand:'Adidas',    price:'34,99€', tag:'Match',     image:'ball_blue', affiliateUrl:'#'},
+    '>200':   {name:'Adidas UCL Pro Ball',        brand:'Adidas',    price:'59,99€', tag:'Pro',       image:'ball_blue', affiliateUrl:'#'},
+  },
+  ballon_puissance: {
+    '<50':    {name:'Kipsta F500 Résistant',      brand:'Decathlon', price:'13,99€', tag:'Robuste',   image:'ball_neon', affiliateUrl:'#'},
+    '50-100': {name:'Puma Orbita Training',       brand:'Puma',      price:'28,99€', tag:'Frappe',    image:'ball_neon', affiliateUrl:'#'},
+    '100-200':{name:'Puma Orbita 1 TB Match',     brand:'Puma',      price:'39,99€', tag:'Match',     image:'ball_blue', affiliateUrl:'#'},
+    '>200':   {name:'Adidas Tango Pro Match',     brand:'Adidas',    price:'49,99€', tag:'Pro',       image:'ball_blue', affiliateUrl:'#'},
+  },
+  ballon_gk: {
+    '<50':    {name:'Kipsta Ballon Réflexes',     brand:'Decathlon', price:'15,99€', tag:'Gardien',   image:'ball_neon', affiliateUrl:'#'},
+    '50-100': {name:'Reusch Training Ball',       brand:'Reusch',    price:'29,99€', tag:'Gardien',   image:'ball_neon', affiliateUrl:'#'},
+    '100-200':{name:'Nike Academy Goalkeeper',    brand:'Nike',      price:'34,99€', tag:'Réflexes',  image:'ball_blue', affiliateUrl:'#'},
+    '>200':   {name:'Nike Flight Official',       brand:'Nike',      price:'54,99€', tag:'Pro',       image:'ball_blue', affiliateUrl:'#'},
+  },
+  // CHAUSSETTES — selon le profil
+  chaussettes_grip:    {name:'Tapedesign Grip Socks',       brand:'Tapedesign', price:'14,99€', tag:'Anti-glisse', image:'sock_neon', affiliateUrl:'#'},
+  chaussettes_confort: {name:'Nike Strike Coussinées',      brand:'Nike',       price:'12,99€', tag:'Amorti',      image:'sock_neon', affiliateUrl:'#'},
+  chaussettes_eco:     {name:'Kipsta Chaussettes Football', brand:'Decathlon',  price:'5,99€',  tag:'Essentiel',   image:'sock_neon', affiliateUrl:'#'},
+  // SACS — selon le profil
+  sac_leger:    {name:'Nike Academy Sac à dos',       brand:'Nike',      price:'34,99€', tag:'Léger',      image:'backpack_dark', affiliateUrl:'#'},
+  sac_technique:{name:'Adidas Tiro Sac à dos',        brand:'Adidas',    price:'39,99€', tag:'Technique',  image:'backpack_dark', affiliateUrl:'#'},
+  sac_robuste:  {name:'Puma teamGOAL Sac 30L',        brand:'Puma',      price:'29,99€', tag:'Robuste',    image:'bag',           affiliateUrl:'#'},
+  sac_gk:       {name:'Nike Goalkeeper Duffel',       brand:'Nike',      price:'44,99€', tag:'Gardien',    image:'bag',           affiliateUrl:'#'},
+  // Conservés (compatibilité ascendante)
   ballon: {
     '<50':    {name:'Kipsta F500 Light Entraînement', brand:'Decathlon', price:'12,99€', tag:'Training', image:'ball_neon', affiliateUrl:'#'},
     '50-100': {name:'Nike Academy Football',          brand:'Nike',      price:'27,99€', tag:'Training', image:'ball_neon', affiliateUrl:'#'},
     '100-200':{name:'Adidas Tiro League Ball',        brand:'Adidas',    price:'34,99€', tag:'Match',    image:'ball_blue', affiliateUrl:'#'},
     '>200':   {name:'Nike Flight Official',           brand:'Nike',      price:'54,99€', tag:'Pro',      image:'ball_blue', affiliateUrl:'#'},
   },
-  // ACCESSOIRES (prix fixe, tous budgets)
   chaussettes: {name:'Kipsta Chaussettes Football', brand:'Decathlon', price:'5,99€',  tag:'Grip',       image:'sock_neon', affiliateUrl:'#'},
   sac:         {name:'Sac de sport football 30L',   brand:'Decathlon', price:'19,99€', tag:'Accessoire', image:'bag',        affiliateUrl:'#'},
 };
@@ -1865,7 +1923,7 @@ const profils = {
     tags:['Gardien','Précision','Réactivité'],
     stats:[{l:'Réflexes',v:92},{l:'Placement',v:88},{l:'Relance',v:82},{l:'Physique',v:86}],
     compatBase:88,
-    prodKeys:{ cramponTop:'crampon_vitesse', cramponAlt:'crampon_puissance', gants:'gants_gk', tibia:'tibia_leger', ballon:'ballon' }
+    prodKeys:{ cramponTop:'crampon_vitesse', cramponAlt:'crampon_puissance', gants:'gants_gk', tibia:'tibia_leger', ballon:'ballon_gk', chaussettes:'chaussettes_confort', sac:'sac_gk' }
   },
   GK_Offensif: {
     name:'Gardien Libéro', highlight:'Libéro',
@@ -1873,7 +1931,7 @@ const profils = {
     tags:['Offensif','Relance','Jeu au pied'],
     stats:[{l:'Réflexes',v:88},{l:'Jeu au pied',v:94},{l:'Relance',v:96},{l:'Placement',v:84}],
     compatBase:91,
-    prodKeys:{ cramponTop:'crampon_controle', cramponAlt:'crampon_vitesse', gants:'gants_gk', tibia:'tibia_leger', ballon:'ballon' }
+    prodKeys:{ cramponTop:'crampon_controle', cramponAlt:'crampon_vitesse', gants:'gants_gk', tibia:'tibia_leger', ballon:'ballon_gk', chaussettes:'chaussettes_grip', sac:'sac_gk' }
   },
   GK_Defensif: {
     name:'Gardien Forteresse', highlight:'Forteresse',
@@ -1881,7 +1939,7 @@ const profils = {
     tags:['Défensif','Arrêts','Solidité'],
     stats:[{l:'Réflexes',v:96},{l:'Placement',v:94},{l:'Commandement',v:90},{l:'Solidité',v:92}],
     compatBase:94,
-    prodKeys:{ cramponTop:'crampon_puissance', cramponAlt:'crampon_controle', gants:'gants_gk', tibia:'tibia_renforce', ballon:'ballon' }
+    prodKeys:{ cramponTop:'crampon_puissance', cramponAlt:'crampon_controle', gants:'gants_gk', tibia:'tibia_renforce', ballon:'ballon_gk', chaussettes:'chaussettes_confort', sac:'sac_gk' }
   },
   DEF_V: {
     name:'Défenseur Agressif', highlight:'Agressif',
@@ -1889,7 +1947,7 @@ const profils = {
     tags:['Défense','Duels','Réactivité'],
     stats:[{l:'Défense',v:94},{l:'Duels',v:91},{l:'Force',v:88},{l:'Vitesse',v:78}],
     compatBase:86,
-    prodKeys:{ cramponTop:'crampon_puissance', cramponAlt:'crampon_puissance_alt', tibia:'tibia_renforce', ballon:'ballon' }
+    prodKeys:{ cramponTop:'crampon_puissance', cramponAlt:'crampon_puissance_alt', tibia:'tibia_renforce', ballon:'ballon_puissance', chaussettes:'chaussettes_confort', sac:'sac_robuste' }
   },
   DEF_T: {
     name:'Défenseur Relanceur', highlight:'Relanceur',
@@ -1897,7 +1955,7 @@ const profils = {
     tags:['Défense','Relance','Vision'],
     stats:[{l:'Défense',v:88},{l:'Passe',v:86},{l:'Contrôle',v:84},{l:'Lecture',v:90}],
     compatBase:84,
-    prodKeys:{ cramponTop:'crampon_controle', cramponAlt:'crampon_puissance', tibia:'tibia_leger', ballon:'ballon' }
+    prodKeys:{ cramponTop:'crampon_controle', cramponAlt:'crampon_puissance', tibia:'tibia_renforce', ballon:'ballon_controle', chaussettes:'chaussettes_grip', sac:'sac_technique' }
   },
   MIL_D: {
     name:'Milieu Box-to-Box', highlight:'Box-to-Box',
@@ -1905,7 +1963,7 @@ const profils = {
     tags:['Endurance','Récupération','Volume'],
     stats:[{l:'Endurance',v:95},{l:'Récup',v:88},{l:'Passe',v:82},{l:'Physique',v:90}],
     compatBase:87,
-    prodKeys:{ cramponTop:'crampon_puissance', cramponAlt:'crampon_controle', tibia:'tibia_leger', ballon:'ballon' }
+    prodKeys:{ cramponTop:'crampon_puissance', cramponAlt:'crampon_controle', tibia:'tibia_leger', ballon:'ballon_puissance', chaussettes:'chaussettes_confort', sac:'sac_robuste' }
   },
   MIL_T: {
     name:'Playmaker Créatif', highlight:'Créatif',
@@ -1913,7 +1971,7 @@ const profils = {
     tags:['Vision','Passe','Technique'],
     stats:[{l:'Vision',v:96},{l:'Passe',v:94},{l:'Contrôle',v:92},{l:'Créativité',v:98}],
     compatBase:91,
-    prodKeys:{ cramponTop:'crampon_controle', cramponAlt:'crampon_controle_alt', tibia:'tibia_leger', ballon:'ballon' }
+    prodKeys:{ cramponTop:'crampon_controle', cramponAlt:'crampon_controle_alt', tibia:'tibia_leger', ballon:'ballon_controle', chaussettes:'chaussettes_grip', sac:'sac_technique' }
   },
   ATT_V: {
     name:'Ailier Explosif', highlight:'Explosif',
@@ -1921,7 +1979,7 @@ const profils = {
     tags:['Vitesse','Dribble','Explosivité'],
     stats:[{l:'Vitesse',v:96},{l:'Dribble',v:91},{l:'Accél.',v:94},{l:'Agilité',v:88}],
     compatBase:93,
-    prodKeys:{ cramponTop:'crampon_vitesse', cramponAlt:'crampon_vitesse_alt', tibia:'tibia_leger', ballon:'ballon' }
+    prodKeys:{ cramponTop:'crampon_vitesse', cramponAlt:'crampon_vitesse_alt', tibia:'tibia_leger', ballon:'ballon_vitesse', chaussettes:'chaussettes_grip', sac:'sac_leger' }
   },
   ATT_P: {
     name:'Finisseur Clinique', highlight:'Clinique',
@@ -1929,7 +1987,7 @@ const profils = {
     tags:['Finition','Placement','Frappe'],
     stats:[{l:'Finition',v:96},{l:'Placement',v:94},{l:'Frappe',v:90},{l:'Calme',v:88}],
     compatBase:89,
-    prodKeys:{ cramponTop:'crampon_puissance', cramponAlt:'crampon_vitesse', tibia:'tibia_leger', ballon:'ballon' }
+    prodKeys:{ cramponTop:'crampon_puissance', cramponAlt:'crampon_vitesse', tibia:'tibia_leger', ballon:'ballon_puissance', chaussettes:'chaussettes_grip', sac:'sac_leger' }
   }
 };
 
@@ -2041,16 +2099,16 @@ function generateResult() {
   }
 
   const tibia = getProduct(keys.tibia, budget);
-  const chaussettes = getProduct('chaussettes', budget);
+  const chaussettes = getProduct(keys.chaussettes || 'chaussettes', budget);
   document.getElementById('recoProtege').innerHTML =
     renderRecoCard(tibia,'Protège-tibias', getTibiaWhy(key), true)+
-    renderRecoCard(chaussettes,'Chaussettes Grip','Maintien optimal du pied dans la chaussure, évite les glissements pendant les appuis.',false);
+    renderRecoCard(chaussettes,'Chaussettes', getChaussettesWhy(key), false);
 
-  const ballon = getProduct('ballon', budget);
-  const sac = getProduct('sac', budget);
+  const ballon = getProduct(keys.ballon || 'ballon', budget);
+  const sac = getProduct(keys.sac || 'sac', budget);
   document.getElementById('recoAccessoires').innerHTML =
     renderRecoCard(ballon,'Ballon', getBallonWhy(key), true)+
-    renderRecoCard(sac,'Sac de sport','Pour transporter et protéger tout ton matériel en un seul sac.',false);
+    renderRecoCard(sac,'Sac de sport', getSacWhy(key), false);
 
   // Le résultat est prêt : masquer l'écran de chargement et neutraliser
   // les timers restants (filet de sécurité inclus) pour éviter tout rappel.
@@ -2088,10 +2146,27 @@ function getTibiaWhy(key) {
 }
 
 function getBallonWhy(key) {
-  if(key==='GK'||key==='GK_Offensif'||key==='GK_Defensif') return 'Idéal pour travailler tes réflexes, la prise de balle et les relances.';
-  if(key==='MIL_T') return 'Pour améliorer ta touche de balle et tes passes courtes quotidiennement.';
-  if(['ATT_V','ATT_P'].includes(key)) return 'Pour travailler tes conduites de balle, tes finitions et tes frappes de précision.';
+  if(key==='GK'||key==='GK_Offensif'||key==='GK_Defensif') return 'Conçu pour travailler tes réflexes, la prise de balle et les relances au pied.';
+  if(key==='MIL_T'||key==='DEF_T') return 'Toucher et trajectoire précis pour affûter tes passes et ton contrôle de balle.';
+  if(key==='ATT_V') return 'Réactif et léger : idéal pour tes conduites rapides et tes prises de balle en vitesse.';
+  if(key==='ATT_P'||key==='MIL_D'||key==='DEF_V') return 'Résistant aux frappes puissantes : parfait pour bosser ta frappe et ta finition.';
   return 'Ballon d\'entraînement adapté à ton niveau et ton usage principal.';
+}
+
+function getChaussettesWhy(key) {
+  if(['ATT_V','MIL_T','DEF_T','GK_Offensif','ATT_P'].includes(key))
+    return 'Chaussettes à grip anti-glisse : pied verrouillé dans la chaussure pour tes appuis et changements de direction.';
+  return 'Chaussettes coussinées : amorti et confort longue durée pour encaisser le volume de jeu et les chocs.';
+}
+
+function getSacWhy(key) {
+  if(key==='GK'||key==='GK_Offensif'||key==='GK_Defensif')
+    return 'Format gardien : range gants, ballon et équipement spécifique dans un sac dédié.';
+  if(['ATT_V','ATT_P'].includes(key))
+    return 'Sac léger et compact : l\'essentiel pour l\'entraînement, sans t\'encombrer.';
+  if(['MIL_T','DEF_T'].includes(key))
+    return 'Sac technique avec compartiments : matériel organisé pour les joueurs méticuleux.';
+  return 'Sac robuste et spacieux : conçu pour transporter tout ton équipement, séance après séance.';
 }
 
 // ════════════════════════════════════════════════════════════
