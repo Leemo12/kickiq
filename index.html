@@ -613,6 +613,16 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
   // tarteaucitron lit cette variable au démarrage pour résoudre
   // les chemins de son CSS et de ses fichiers de langue.
   var tarteaucitronForceCDN = "https://cdn.jsdelivr.net/gh/AmauriC/tarteaucitron.js@1.33.0/";
+
+  // Surcharge purement TEXTUELLE des libellés (fusionnée avec la langue FR).
+  // Remplace "Interdire" par "Refuser" (plus clair pour l'utilisateur).
+  // N'affecte AUCUN comportement : seuls les libellés affichés changent.
+  // 'deny'    = bouton de refus par service ("Interdire" → "Refuser")
+  // 'denyAll' = bouton "Tout refuser" du bandeau (harmonisé sur "Refuser")
+  var tarteaucitronCustomText = {
+    "deny": "Refuser",
+    "denyAll": "Tout refuser"
+  };
 </script>
 <script src="https://cdn.jsdelivr.net/gh/AmauriC/tarteaucitron.js@1.33.0/tarteaucitron.min.js"></script>
 <script>
@@ -678,32 +688,26 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
 </script>
 
 <!-- ─────────────────────────────────────────────────────────────
-     KICKIQ — Habillage du bandeau de consentement
-     Objectif : identité visuelle KICKIQ premium + WCAG AA
-     Aucune logique JS / consentement / configuration tarteaucitron
-     n'est modifiée. Seul le rendu visuel est ajusté.
-     NB : les liens "En savoir plus / Voir le site officiel" ne sont
-     PAS stylés ici — ils conservent leur rendu natif (intacts).
+     KICKIQ — Habillage du bandeau de consentement (version cyan)
+     Identité KICKIQ : noir / vert néon / cyan (accents).
+     Base visuelle conservée ; uniquement peaufinée pour la
+     lisibilité (WCAG AA) et une délimitation légère des sections.
+     Aucune logique JS / consentement / configuration n'est modifiée.
+     NB : les liens "En savoir plus / Voir le site officiel" gardent
+     leur rendu cyan exactement comme aujourd'hui.
      ───────────────────────────────────────────────────────────── -->
 <style>
-/* ── 1. POLICE GLOBALE ────────────────────────────────────────
-   Applique Barlow à tous les éléments du bandeau. */
+/* ── 1. POLICE GLOBALE ──────────────────────────────────────── */
 #tarteaucitronRoot *{font-family:'Barlow',Arial,Helvetica,sans-serif!important}
 
-/* ── 2. SURFACES PRINCIPALES ─────────────────────────────────
-   Fond sombre KICKIQ sur le bandeau, le panneau complet et
-   le petit bandeau réduit. Texte blanc pour contraste maximal. */
+/* ── 2. SURFACES PRINCIPALES (fond noir KICKIQ) ─────────────── */
 #tarteaucitronAlertBig,#tarteaucitron,#tarteaucitronAlertSmall{
   background:var(--black2,#111)!important;
   color:var(--white,#F5F5F5)!important;
   border:1px solid var(--border,rgba(255,255,255,0.1))!important
 }
 
-/* ── 2b. HARMONISATION — SUPPRESSION DES ZONES BLANCHES ───────
-   tarteaucitron génère par défaut plusieurs surfaces claires
-   (fond du panneau, barre de titre principale, en-têtes, marges
-   internes). On les unifie en noir KICKIQ pour un rendu premium
-   cohérent, sans plus aucun contraste blanc/noir disgracieux. */
+/* ── 2b. UNIFICATION DES SURFACES INTERNES (noir cohérent) ──── */
 #tarteaucitron,
 #tarteaucitron .tarteaucitronMainLine,
 #tarteaucitron #tarteaucitronMainLineOffset,
@@ -717,74 +721,107 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
   color:var(--white,#F5F5F5)!important;
   border-color:rgba(255,255,255,0.08)!important
 }
-/* Barre de titre principale du panneau ("Panneau de gestion…") */
+/* Barre de titre principale du panneau ("Panneau de gestion…")
+   — léger filet cyan en bas pour marquer l'en-tête sans alourdir. */
+#tarteaucitron #tarteaucitronMainLineOffset{
+  border-bottom:1px solid rgba(27,255,255,0.30)!important
+}
+/* RETOUCHE 1 — "Préférences pour tous les services" ──────────
+   Blanc pur forcé sur le titre ET ses enfants directs pour écraser
+   toute couleur native injectée par tarteaucitron (span, b…).
+   Taille, police et position inchangées. */
 #tarteaucitron #tarteaucitronMainLineOffset .tarteaucitronH1,
+#tarteaucitron #tarteaucitronMainLineOffset .tarteaucitronH1 *,
 #tarteaucitron .tarteaucitronH1,
+#tarteaucitron .tarteaucitronH1 *,
 #tarteaucitron #tarteaucitronInfo{
-  color:var(--white,#F5F5F5)!important
+  color:#FFFFFF!important
 }
 
 /* ── 3. TEXTES DU BANDEAU PRINCIPAL ──────────────────────────
-   Le disclaimer et son <b> restent blancs (#F5F5F5) sur fond
-   noir : ratio > 14:1, conforme WCAG AAA. */
+   Disclaimer en blanc sur noir : ratio > 14:1 (WCAG AAA). */
 #tarteaucitronAlertBig #tarteaucitronDisclaimerAlert,
 #tarteaucitronAlertBig #tarteaucitronDisclaimerAlert b{
   color:var(--white,#F5F5F5)!important
 }
 
 /* ── 4. FOND DU PANNEAU DE SERVICES ──────────────────────────
-   Le conteneur de services et les lignes alternées passent en
-   noir profond : cela empêche le fond blanc natif de tarteaucitron
-   qui rendait le vert néon illisible sur les titres de service. */
+   Empêche le fond blanc natif de tarteaucitron qui rendait le
+   vert néon illisible. */
 #tarteaucitron #tarteaucitronServices,
 #tarteaucitron .tarteaucitronBorderedPanel{
   background:var(--black2,#111)!important
 }
+/* ── 4b. SECTIONS — délimitation LÉGÈRE (sans alourdir) ───────
+   Chaque service garde le fond sombre KICKIQ, avec un simple
+   filet de séparation et un léger espacement : les sections sont
+   mieux distinguées sans transformer le panneau en grosses cartes. */
 #tarteaucitron #tarteaucitronServices li,
 #tarteaucitron #tarteaucitronServices li:nth-child(even){
   background:var(--black3,#171717)!important;
-  border-color:rgba(255,255,255,0.06)!important
+  border:1px solid rgba(255,255,255,0.07)!important;
+  border-radius:4px!important;
+  margin:6px 0!important;
+  padding:10px 12px!important
 }
-/* En-tête de chaque bloc de service (zone titre + toggle) */
+/* RETOUCHE 3 — Cartes "Cookies obligatoires" et "Mesure d'audience"
+   Le conteneur #tarteaucitronServices_mandatory regroupe ces deux
+   catégories. Fond anthracite légèrement teinté + bordure néon très
+   discrète à gauche pour les différencier sans alourdir l'interface. */
+#tarteaucitron #tarteaucitronServices_mandatory li{
+  background:#161A14!important;
+  border:1px solid rgba(255,255,255,0.09)!important;
+  border-left:2px solid rgba(180,255,46,0.40)!important
+}
+/* En-têtes internes transparents pour hériter du fond de section */
 #tarteaucitron #tarteaucitronServices .tarteaucitronTitle,
 #tarteaucitron #tarteaucitronServices .tarteaucitronHidden{
   background:transparent!important
 }
 
-/* ── 5. TITRES DE CATÉGORIE ("Cookies obligatoires",
+/* ── 5. TITRES DE SERVICE ("Cookies obligatoires",
          "Mesure d'audience", "Clarity", "Google Analytics") ──
-   Le vert néon (#B4FF2E) sur fond #111 donne un ratio ~8:1
-   (WCAG AA et AAA validés). Font condensée KICKIQ + poids fort
-   pour les différencier nettement des descriptions. */
+   Vert néon (#B4FF2E) sur fond #171717 → ratio ~8:1 (WCAG AAA).
+   RETOUCHE 4 : font-size 15px → 17px (+13%) pour Clarity et GA4 ;
+   les titres de catégories obligatoires héritent de cette taille. */
 #tarteaucitronServices .tarteaucitronTitle button,
 #tarteaucitron #tarteaucitronServices .tarteaucitronH3,
 #tarteaucitron #tarteaucitronServices .tarteaucitronHidden>h3{
   color:var(--neon,#B4FF2E)!important;
   font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif!important;
   font-weight:800!important;
-  font-size:15px!important;
+  font-size:17px!important;
   letter-spacing:0.04em!important;
   text-transform:uppercase!important
 }
 
-/* ── 6. DESCRIPTIONS ET TEXTES COURANTS ──────────────────────
-   Les textes de description (#tarteaucitronDetails), les labels
-   et les textes associés aux cases à cocher passent en blanc
-   cassé (#D4D4D4) sur fond #171717 : ratio ~8.5:1, WCAG AA. */
+/* ── 6. DESCRIPTIONS — contraste renforcé ────────────────────
+   RETOUCHE 2 : #DCDCDC → #EFEFEF (gris très clair, ratio ~11:1
+   sur #171717, WCAG AAA). Design inchangé, lisibilité maximale. */
 #tarteaucitron #tarteaucitronServices .tarteaucitronDetails,
 #tarteaucitron #tarteaucitronServices .tarteaucitronTitle span,
 #tarteaucitron #tarteaucitronServices li p,
 #tarteaucitron #tarteaucitronServices li span{
-  color:#D4D4D4!important
+  color:#EFEFEF!important;
+  line-height:1.55!important
 }
 
-/* ── 7. (RETIRÉ) Liens "En savoir plus / Voir le site officiel"
-   Laissés volontairement dans leur rendu natif : aucune règle
-   CSS KICKIQ ne les cible, leur apparence reste strictement
-   identique à l'existant. */
+/* ── 7. LIENS "En savoir plus / Voir le site officiel" ────────
+   Accent cyan KICKIQ (#1BFFFF) sur fond sombre : ratio ~8.5:1
+   (WCAG AAA). Conservés EXACTEMENT comme dans la version cyan
+   actuelle (couleur + soulignement). */
+#tarteaucitron #tarteaucitronServices a,
+#tarteaucitron #tarteaucitronServices .tarteaucitronDetails a,
+#tarteaucitronAlertBig a{
+  color:var(--blue,#1BFFFF)!important;
+  text-decoration:underline!important
+}
+#tarteaucitron #tarteaucitronServices a:hover,
+#tarteaucitronAlertBig a:hover{
+  color:var(--white,#F5F5F5)!important
+}
 
-/* ── 8. BOUTONS "Accepter" / CTA principal ────────────────────
-   Vert néon sur noir : conservé tel quel, ratio > 7:1. */
+/* ── 8. BOUTONS "Accepter" / CTA principal (vert néon, inchangé) */
 #tarteaucitronRoot .tarteaucitronCTAButton,
 #tarteaucitronPersonalize2,
 #tarteaucitronAllAllowed,
@@ -799,12 +836,10 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
   border-radius:2px!important
 }
 
-/* ── 9. BOUTONS "Tout refuser" / "Interdire" ─────────────────
-   Ces boutons ont souvent opacity:0.4 ou color hérité en état
-   "inactif". On force couleur blanche et opacité pleine pour
-   qu'ils restent lisibles à tout moment (ratio blanc/#111 > 14:1).
-   La bordure est renforcée à 50% d'opacité pour mieux se
-   distinguer du fond. */
+/* ── 9. BOUTONS "Refuser" (ex-"Interdire") / "Tout refuser" ───
+   Style ghost : transparent, texte blanc, bordure nette à 50%,
+   lisible à tout moment (opacity native annulée). Le libellé
+   "Interdire→Refuser" est géré côté texte (tarteaucitronCustomText). */
 #tarteaucitronRoot #tarteaucitronAllDenied2,
 #tarteaucitron #tarteaucitronServices .tarteaucitronDeny{
   background:transparent!important;
@@ -815,7 +850,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
   font-weight:700!important;
   text-transform:uppercase!important;
   letter-spacing:0.06em!important;
-  opacity:1!important  /* annule toute réduction d'opacité native */
+  opacity:1!important  /* annule la réduction d'opacité native */
 }
 #tarteaucitronRoot #tarteaucitronAllDenied2:hover,
 #tarteaucitron #tarteaucitronServices .tarteaucitronDeny:hover{
@@ -823,9 +858,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
   background:rgba(255,255,255,0.06)!important
 }
 
-/* ── 10. BOUTON FERMER LE PANNEAU ────────────────────────────
-   Fond légèrement plus sombre que le panneau pour le distinguer,
-   texte blanc. */
+/* ── 10. BOUTON FERMER LE PANNEAU ──────────────────────────── */
 #tarteaucitron #tarteaucitronClosePanel{
   background:var(--black3,#171717)!important;
   color:var(--white,#F5F5F5)!important;
@@ -834,10 +867,9 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
 
 /* ── 11. CADENAS FLOTTANT — SUPPRIMÉ ─────────────────────────
    #tarteaucitronIcon est l'unique élément du cadenas flottant.
-   display:none le masque entièrement sans toucher à aucune
-   logique JS : tarteaucitron.userInterface.openPanel() reste
-   fonctionnel et le lien "Gérer mes cookies" du footer continue
-   d'ouvrir le panneau normalement. */
+   display:none le masque sans toucher à la logique JS :
+   tarteaucitron.userInterface.openPanel() reste fonctionnel et le
+   lien "Gérer mes cookies" du footer ouvre toujours le panneau. */
 #tarteaucitronIcon{
   display:none!important
 }
