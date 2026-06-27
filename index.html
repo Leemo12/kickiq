@@ -45,7 +45,7 @@
     {
       "@type": "WebSite",
       "@id": "https://www.kickiq.eu/#website",
-      "url": "https://www.kickiq.eu",
+      "url": "https://www.kickiq.eu/",
       "name": "KICKIQ",
       "description": "Trouve l'équipement adapté à ton style",
       "inLanguage": "fr-FR",
@@ -55,7 +55,7 @@
       "@type": "Organization",
       "@id": "https://www.kickiq.eu/#organization",
       "name": "KICKIQ",
-      "url": "https://www.kickiq.eu",
+      "url": "https://www.kickiq.eu/",
       "description": "KICKIQ analyse le profil du joueur et recommande les équipements de football adaptés à son style de jeu.",
       "logo": "https://www.kickiq.eu/kickiq-primary-onblack.png",
       "email": "contact@kickiq.eu"
@@ -679,9 +679,11 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
 
 <!-- ─────────────────────────────────────────────────────────────
      KICKIQ — Habillage du bandeau de consentement
-     Objectif : identité visuelle KICKIQ + conformité WCAG AA
+     Objectif : identité visuelle KICKIQ premium + WCAG AA
      Aucune logique JS / consentement / configuration tarteaucitron
      n'est modifiée. Seul le rendu visuel est ajusté.
+     NB : les liens "En savoir plus / Voir le site officiel" ne sont
+     PAS stylés ici — ils conservent leur rendu natif (intacts).
      ───────────────────────────────────────────────────────────── -->
 <style>
 /* ── 1. POLICE GLOBALE ────────────────────────────────────────
@@ -695,6 +697,31 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
   background:var(--black2,#111)!important;
   color:var(--white,#F5F5F5)!important;
   border:1px solid var(--border,rgba(255,255,255,0.1))!important
+}
+
+/* ── 2b. HARMONISATION — SUPPRESSION DES ZONES BLANCHES ───────
+   tarteaucitron génère par défaut plusieurs surfaces claires
+   (fond du panneau, barre de titre principale, en-têtes, marges
+   internes). On les unifie en noir KICKIQ pour un rendu premium
+   cohérent, sans plus aucun contraste blanc/noir disgracieux. */
+#tarteaucitron,
+#tarteaucitron .tarteaucitronMainLine,
+#tarteaucitron #tarteaucitronMainLineOffset,
+#tarteaucitron #tarteaucitronServices_mandatoryTitle,
+#tarteaucitron .tarteaucitronLine,
+#tarteaucitron .tarteaucitronName,
+#tarteaucitron #tarteaucitronInfo,
+#tarteaucitron #tarteaucitronClosePanelCookie,
+#tarteaucitronRoot #tarteaucitronInfo{
+  background:var(--black2,#111)!important;
+  color:var(--white,#F5F5F5)!important;
+  border-color:rgba(255,255,255,0.08)!important
+}
+/* Barre de titre principale du panneau ("Panneau de gestion…") */
+#tarteaucitron #tarteaucitronMainLineOffset .tarteaucitronH1,
+#tarteaucitron .tarteaucitronH1,
+#tarteaucitron #tarteaucitronInfo{
+  color:var(--white,#F5F5F5)!important
 }
 
 /* ── 3. TEXTES DU BANDEAU PRINCIPAL ──────────────────────────
@@ -717,6 +744,11 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
 #tarteaucitron #tarteaucitronServices li:nth-child(even){
   background:var(--black3,#171717)!important;
   border-color:rgba(255,255,255,0.06)!important
+}
+/* En-tête de chaque bloc de service (zone titre + toggle) */
+#tarteaucitron #tarteaucitronServices .tarteaucitronTitle,
+#tarteaucitron #tarteaucitronServices .tarteaucitronHidden{
+  background:transparent!important
 }
 
 /* ── 5. TITRES DE CATÉGORIE ("Cookies obligatoires",
@@ -746,21 +778,10 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
   color:#D4D4D4!important
 }
 
-/* ── 7. LIENS "En savoir plus / Voir le site officiel" ────────
-   Ces liens sont nativement en vert tarteaucitron (#1B870B)
-   sur fond sombre — mauvais contraste. On les passe en cyan
-   (#1BFFFF), le second accent KICKIQ : ratio ~8.5:1 sur #111,
-   WCAG AAA. Souligné maintenu pour l'accessibilité. */
-#tarteaucitron #tarteaucitronServices a,
-#tarteaucitron #tarteaucitronServices .tarteaucitronDetails a,
-#tarteaucitronAlertBig a{
-  color:var(--blue,#1BFFFF)!important;
-  text-decoration:underline!important
-}
-#tarteaucitron #tarteaucitronServices a:hover,
-#tarteaucitronAlertBig a:hover{
-  color:var(--white,#F5F5F5)!important
-}
+/* ── 7. (RETIRÉ) Liens "En savoir plus / Voir le site officiel"
+   Laissés volontairement dans leur rendu natif : aucune règle
+   CSS KICKIQ ne les cible, leur apparence reste strictement
+   identique à l'existant. */
 
 /* ── 8. BOUTONS "Accepter" / CTA principal ────────────────────
    Vert néon sur noir : conservé tel quel, ratio > 7:1. */
