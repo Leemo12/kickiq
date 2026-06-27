@@ -612,7 +612,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
   <div class="mob-link" onclick="showPage('about');toggleMob()"><span class="mob-link-icon">💡</span><span class="mob-link-name">À propos</span></div>
   <div class="mob-link" onclick="showPage('contact');toggleMob()"><span class="mob-link-icon">✉️</span><span class="mob-link-name">Contact</span></div>
   <div class="mob-ctas">
-    <button class="btn-ghost" style="flex:1" onclick="showPage('quiz');toggleMob()">Commencer</button>
+    <button class="btn-ghost" style="flex:1" onclick="showPage('equipements');toggleMob()">Catalogue</button>
     <button class="btn-neon" style="flex:1" onclick="showPage('quiz');toggleMob()">Mon Analyse</button>
   </div>
 </div>
@@ -964,18 +964,77 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
       </div>
     </div>
     <div style="margin-top:52px">
-      <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:26px;text-transform:uppercase;color:var(--white);margin-bottom:24px">La roadmap KICKIQ</h3>
+      <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:26px;text-transform:uppercase;color:var(--white);margin-bottom:16px">Pourquoi faire confiance à KICKIQ</h3>
       <div class="why-grid">
-        <div class="why-card"><div class="why-icon">✅</div><div class="why-title">V1 — En ligne</div><p class="why-desc">Quiz intelligent en 6 questions, archétypes de joueurs, vrais modèles de crampons calibrés selon le budget.</p></div>
-        <div class="why-card"><div class="why-icon blue">🚧</div><div class="why-title">V2 — Prochainement</div><p class="why-desc">Fiches produits avec photos, prix en temps réel, historique des prix, comparaisons détaillées, catalogue élargi et sélection spéciale Coupe du Monde 2026.</p></div>
-        <div class="why-card"><div class="why-icon">🤖</div><div class="why-title">V3 — KICKIQ AI</div><p class="why-desc">Recommandations IA conversationnelles, profils joueurs sauvegardés, alertes prix, analyse avancée.</p></div>
+        <div class="why-card"><div class="why-icon">🎯</div><div class="why-title">Indépendant</div><p class="why-desc">Les recommandations partent de ton profil de joueur, pas des marques. Aucune commission n'influence la sélection.</p></div>
+        <div class="why-card"><div class="why-icon blue">🔍</div><div class="why-title">Transparent</div><p class="why-desc">Les liens affiliés sont clairement signalés, sans surcoût pour toi. Tu sais toujours comment KICKIQ se finance.</p></div>
+        <div class="why-card"><div class="why-icon">⚽</div><div class="why-title">Pensé par des passionnés</div><p class="why-desc">Un projet créé par des passionnés de football, centré sur un seul objectif : t'aider à mieux t'équiper.</p></div>
+      </div>
+    </div>
+    <div style="margin-top:52px">
+      <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:26px;text-transform:uppercase;color:var(--white);margin-bottom:24px">Questions fréquentes</h3>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:4px;padding:24px">
+          <h4 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:17px;text-transform:uppercase;color:var(--white);margin-bottom:8px">KICKIQ est-il gratuit ?</h4>
+          <p style="font-size:14px;color:var(--gray2);line-height:1.7">Oui, totalement. L'analyse, le comparateur et le catalogue sont accessibles librement, sans compte ni inscription.</p>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:4px;padding:24px">
+          <h4 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:17px;text-transform:uppercase;color:var(--white);margin-bottom:8px">Comment sont choisies les recommandations ?</h4>
+          <p style="font-size:14px;color:var(--gray2);line-height:1.7">Un algorithme développé dans le site associe ton poste, ton style, ton niveau, ton terrain et ton budget aux modèles les plus pertinents du marché.</p>
+        </div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:4px;padding:24px">
+          <h4 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:17px;text-transform:uppercase;color:var(--white);margin-bottom:8px">Mes réponses sont-elles enregistrées ?</h4>
+          <p style="font-size:14px;color:var(--gray2);line-height:1.7">Non. L'analyse fonctionne en mémoire locale dans ton navigateur, sans envoi de données vers un serveur ni création de compte.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 </div>
 
-<!-- PAGE : CONTACT (email uniquement) -->
+<!-- PAGE : ROADMAP (évolution du projet) -->
+<div class="page" id="page-roadmap">
+<section style="background:var(--black3);padding:80px 48px">
+  <div style="max-width:1000px;margin:0 auto">
+    <div class="section-eyebrow">Roadmap</div>
+    <h2 class="section-title" style="margin-bottom:16px">L'évolution <span class="dim">de KICKIQ</span></h2>
+    <p style="font-size:15px;color:var(--gray2);line-height:1.7;max-width:640px;margin-bottom:48px">De la première version aux fonctionnalités à venir : voici où en est le projet et la direction qu'il prend.</p>
+
+    <div style="margin-bottom:44px">
+      <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;color:var(--neon);margin-bottom:20px">✅ Disponible aujourd'hui</h3>
+      <div class="why-grid">
+        <div class="why-card"><div class="why-icon">🎯</div><div class="why-title">Analyse personnalisée</div><p class="why-desc">Un moteur de recommandation qui part de ton profil de joueur pour cibler l'équipement adapté.</p></div>
+        <div class="why-card"><div class="why-icon">📊</div><div class="why-title">Comparateur</div><p class="why-desc">Compare jusqu'à 6 équipements côte à côte selon leurs caractéristiques clés.</p></div>
+        <div class="why-card"><div class="why-icon">🛍️</div><div class="why-title">Catalogue</div><p class="why-desc">Un catalogue de produits organisé par catégorie, du crampon au sac de sport.</p></div>
+        <div class="why-card"><div class="why-icon">⚽</div><div class="why-title">Recommandations par profil</div><p class="why-desc">Des suggestions calibrées selon ton poste, ton style, ton niveau, ton terrain et ton budget.</p></div>
+        <div class="why-card"><div class="why-icon">🔗</div><div class="why-title">Liens d'affiliation</div><p class="why-desc">Un accès direct vers les offres des revendeurs partenaires, signalé en toute transparence.</p></div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:44px">
+      <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;color:var(--blue);margin-bottom:20px">🚧 En développement</h3>
+      <div class="why-grid">
+        <div class="why-card"><div class="why-icon blue">🆕</div><div class="why-title">Nouvelles catégories</div><p class="why-desc">Élargissement progressif des types d'équipements couverts par le catalogue.</p></div>
+        <div class="why-card"><div class="why-icon blue">🤝</div><div class="why-title">Plus de marques partenaires</div><p class="why-desc">De nouveaux revendeurs et marques pour enrichir les recommandations.</p></div>
+        <div class="why-card"><div class="why-icon blue">⚙️</div><div class="why-title">Moteur amélioré</div><p class="why-desc">Un affinage continu de l'algorithme de recommandation pour des résultats encore plus pertinents.</p></div>
+        <div class="why-card"><div class="why-icon blue">📈</div><div class="why-title">Comparateur avancé</div><p class="why-desc">Davantage de critères et de filtres pour comparer les produits en profondeur.</p></div>
+      </div>
+    </div>
+
+    <div>
+      <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;color:var(--white);margin-bottom:20px">🚀 À venir</h3>
+      <div class="why-grid">
+        <div class="why-card"><div class="why-icon">🧠</div><div class="why-title">Intelligence artificielle</div><p class="why-desc">Une IA pour affiner encore les recommandations et dialoguer avec le joueur.</p></div>
+        <div class="why-card"><div class="why-icon">👤</div><div class="why-title">Création de compte</div><p class="why-desc">Un espace personnel pour retrouver ton profil et tes analyses.</p></div>
+        <div class="why-card"><div class="why-icon">🕑</div><div class="why-title">Historique des analyses</div><p class="why-desc">Garde une trace de tes analyses passées et de leur évolution.</p></div>
+        <div class="why-card"><div class="why-icon">⭐</div><div class="why-title">Favoris</div><p class="why-desc">Sauvegarde les produits qui t'intéressent pour les retrouver facilement.</p></div>
+        <div class="why-card"><div class="why-icon">📱</div><div class="why-title">Application mobile</div><p class="why-desc">KICKIQ dans ta poche, avec une expérience pensée pour le mobile.</p></div>
+        <div class="why-card"><div class="why-icon">🎛️</div><div class="why-title">Tableau de bord joueur</div><p class="why-desc">Une personnalisation avancée et un tableau de bord centralisant ton profil.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
 <div class="page" id="page-contact">
 <section style="background:var(--black3);padding:80px 48px">
   <div style="max-width:900px;margin:0 auto">
@@ -1077,7 +1136,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
       </div>
     </div>
     <div class="footer-col"><h4>Plateforme</h4><ul class="footer-links"><li><a onclick="showPage('quiz')">Analyse profil</a></li><li><a onclick="showPage('comparateur')">Comparateur</a></li><li><a onclick="showPage('equipements')">Catalogue</a></li></ul></div>
-    <div class="footer-col"><h4>Profils</h4><ul class="footer-links"><li><a onclick="showPage('home')">Par poste</a></li><li><a onclick="showPage('home')">Par style</a></li><li><a onclick="showPage('about')">Roadmap</a></li></ul></div>
+    <div class="footer-col"><h4>Profils</h4><ul class="footer-links"><li><a onclick="showPage('home')">Par poste</a></li><li><a onclick="showPage('home')">Par style</a></li><li><a onclick="showPage('roadmap')">Roadmap</a></li></ul></div>
     <div class="footer-col"><h4>Info</h4><ul class="footer-links"><li><a onclick="showPage('about')">À propos</a></li><li><a onclick="showPage('contact')">Contact</a></li><li><a onclick="showPage('mentions')">Mentions légales</a></li><li><a onclick="showPage('confidentialite')">Confidentialité</a></li></ul></div>
   </div>
   <div class="footer-bottom">
@@ -1157,7 +1216,7 @@ function kiqToast(msg, type='success') {
 // ════════════════════════════════════════════════════════════
 //  NAVIGATION
 // ════════════════════════════════════════════════════════════
-const pages = ['home','quiz','result','comparateur','equipements','about','contact','mentions','confidentialite'];
+const pages = ['home','quiz','result','comparateur','equipements','about','roadmap','contact','mentions','confidentialite'];
 let currentPage = 'home';
 
 function showPage(id) {
