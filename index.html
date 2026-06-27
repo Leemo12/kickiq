@@ -602,17 +602,25 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
 
 <!-- ═══════════════════════════════════════════════════════════
      KICKIQ — Consent Management Platform (tarteaucitron.js)
-     Bibliothèque hébergée EN LOCAL à la racine du projet.
-     Télécharge la dernière version officielle depuis :
-     https://github.com/AmauriC/tarteaucitron.js
-     et place "tarteaucitron.min.js" à la racine (à côté de index.html).
+     Chargée depuis le CDN officiel jsDelivr (version figée 1.33.0).
+     tarteaucitron.min.js charge automatiquement ses dépendances
+     (CSS + fichier de langue) ; tarteaucitronForceCDN garantit
+     qu'elles sont récupérées depuis le CDN et NON depuis la racine
+     du site — aucun fichier à déposer manuellement sur le serveur.
      ═══════════════════════════════════════════════════════════ -->
-<script src="/tarteaucitron.min.js"></script>
+<script>
+  // Doit être défini AVANT le chargement du script principal :
+  // tarteaucitron lit cette variable au démarrage pour résoudre
+  // les chemins de son CSS et de ses fichiers de langue.
+  var tarteaucitronForceCDN = "https://cdn.jsdelivr.net/gh/AmauriC/tarteaucitron.js@1.33.0/";
+</script>
+<script src="https://cdn.jsdelivr.net/gh/AmauriC/tarteaucitron.js@1.33.0/tarteaucitron.min.js"></script>
 <script>
 (function(){
   if (typeof tarteaucitron === 'undefined') return;
 
   tarteaucitron.init({
+    tarteaucitronForceCDN: "https://cdn.jsdelivr.net/gh/AmauriC/tarteaucitron.js@1.33.0/", // dépendances (CSS, services, langue) servies par le CDN
     privacyUrl: "",                 // gestion via nos propres liens internes
     bodyPosition: "bottom",
     hashtag: "#tarteaucitron",
