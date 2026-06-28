@@ -629,6 +629,32 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
 (function(){
   if (typeof tarteaucitron === 'undefined') return;
 
+  // ── Microsoft Clarity (service personnalisé) ──
+  // IMPORTANT : la définition d'un service CUSTOM doit être faite AVANT
+  // tarteaucitron.init() pour que le moteur l'intègre à la liste des
+  // services au moment de la construction du panneau. Déclaré après init,
+  // js() n'est jamais rejoué après un clic "Tout accepter".
+  // Le stub window.clarity est créé UNIQUEMENT dans js() (à l'exécution,
+  // donc après consentement) — pas dans le littéral de l'objet.
+  tarteaucitron.services.clarity = {
+    key: "clarity",
+    type: "analytic",
+    name: "Microsoft Clarity",
+    uri: "https://learn.microsoft.com/privacy",
+    needConsent: true,
+    cookies: ['_clck', '_clsk', 'CLID', 'ANONCHK', 'MR', 'MUID', 'SM'],
+    js: function () {
+      "use strict";
+      window.clarity = window.clarity || function(){(window.clarity.q=window.clarity.q||[]).push(arguments)};
+      var t = document.createElement('script');
+      t.async = 1;
+      t.src = "https://www.clarity.ms/tag/xa203i77pm";
+      var y = document.getElementsByTagName('script')[0];
+      y.parentNode.insertBefore(t, y);
+    },
+    fallback: function () { "use strict"; /* rien tant que pas de consentement */ }
+  };
+
   tarteaucitron.init({
     tarteaucitronForceCDN: "https://cdn.jsdelivr.net/gh/AmauriC/tarteaucitron.js@1.33.0/", // dépendances (CSS, services, langue) servies par le CDN
     privacyUrl: "",                 // gestion via nos propres liens internes
@@ -665,24 +691,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
   tarteaucitron.user.gtagMore = function(){ /* events custom éventuels après consentement */ };
   (tarteaucitron.job = tarteaucitron.job || []).push('gtag');
 
-  // ── Microsoft Clarity (service personnalisé) ──
-  tarteaucitron.services.clarity = {
-    key: "clarity",
-    type: "analytic",
-    name: "Microsoft Clarity",
-    uri: "https://learn.microsoft.com/privacy",
-    needConsent: true,
-    cookies: ['_clck', '_clsk', 'CLID', 'ANONCHK', 'MR', 'MUID', 'SM'],
-    js: function () {
-      window.clarity = window.clarity || function(){(window.clarity.q=window.clarity.q||[]).push(arguments)};
-      var t = document.createElement('script');
-      t.async = 1;
-      t.src = "https://www.clarity.ms/tag/xa203i77pm";
-      var y = document.getElementsByTagName('script')[0];
-      y.parentNode.insertBefore(t, y);
-    },
-    fallback: function () { /* rien tant que pas de consentement */ }
-  };
+  // ── Microsoft Clarity : activation (la définition est faite AVANT init) ──
   (tarteaucitron.job = tarteaucitron.job || []).push('clarity');
 })();
 </script>
@@ -1299,50 +1308,6 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
   </div>
 </section>
 </div>
-
-<!-- PAGE : ROADMAP (évolution du projet) -->
-<div class="page" id="page-roadmap">
-<section style="background:var(--black3);padding:80px 48px">
-  <div style="max-width:1000px;margin:0 auto">
-    <div class="section-eyebrow">Roadmap</div>
-    <h2 class="section-title" style="margin-bottom:16px">L'évolution <span class="dim">de KICKIQ</span></h2>
-    <p style="font-size:15px;color:var(--gray2);line-height:1.7;max-width:640px;margin-bottom:48px">De la première version aux fonctionnalités à venir : voici où en est le projet et la direction qu'il prend.</p>
-
-    <div style="margin-bottom:44px">
-      <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;color:var(--neon);margin-bottom:20px">✅ Disponible aujourd'hui</h3>
-      <div class="why-grid">
-        <div class="why-card"><div class="why-icon">🎯</div><div class="why-title">Analyse personnalisée</div><p class="why-desc">Un moteur de recommandation qui part de ton profil de joueur pour cibler l'équipement adapté.</p></div>
-        <div class="why-card"><div class="why-icon">📊</div><div class="why-title">Comparateur</div><p class="why-desc">Compare jusqu'à 6 équipements côte à côte selon leurs caractéristiques clés.</p></div>
-        <div class="why-card"><div class="why-icon">🛍️</div><div class="why-title">Catalogue</div><p class="why-desc">Un catalogue de produits organisé par catégorie, du crampon au sac de sport.</p></div>
-        <div class="why-card"><div class="why-icon">⚽</div><div class="why-title">Recommandations par profil</div><p class="why-desc">Des suggestions calibrées selon ton poste, ton style, ton niveau, ton terrain et ton budget.</p></div>
-        <div class="why-card"><div class="why-icon">🔗</div><div class="why-title">Liens d'affiliation</div><p class="why-desc">Un accès direct vers les offres des revendeurs partenaires, signalé en toute transparence.</p></div>
-      </div>
-    </div>
-
-    <div style="margin-bottom:44px">
-      <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;color:var(--blue);margin-bottom:20px">🚧 En développement</h3>
-      <div class="why-grid">
-        <div class="why-card"><div class="why-icon blue">🆕</div><div class="why-title">Nouvelles catégories</div><p class="why-desc">Élargissement progressif des types d'équipements couverts par le catalogue.</p></div>
-        <div class="why-card"><div class="why-icon blue">🤝</div><div class="why-title">Plus de marques partenaires</div><p class="why-desc">De nouveaux revendeurs et marques pour enrichir les recommandations.</p></div>
-        <div class="why-card"><div class="why-icon blue">⚙️</div><div class="why-title">Moteur amélioré</div><p class="why-desc">Un affinage continu de l'algorithme de recommandation pour des résultats encore plus pertinents.</p></div>
-        <div class="why-card"><div class="why-icon blue">📈</div><div class="why-title">Comparateur avancé</div><p class="why-desc">Davantage de critères et de filtres pour comparer les produits en profondeur.</p></div>
-      </div>
-    </div>
-
-    <div>
-      <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;color:var(--white);margin-bottom:20px">🚀 À venir</h3>
-      <div class="why-grid">
-        <div class="why-card"><div class="why-icon">🧠</div><div class="why-title">Intelligence artificielle</div><p class="why-desc">Une IA pour affiner encore les recommandations et dialoguer avec le joueur.</p></div>
-        <div class="why-card"><div class="why-icon">👤</div><div class="why-title">Création de compte</div><p class="why-desc">Un espace personnel pour retrouver ton profil et tes analyses.</p></div>
-        <div class="why-card"><div class="why-icon">🕑</div><div class="why-title">Historique des analyses</div><p class="why-desc">Garde une trace de tes analyses passées et de leur évolution.</p></div>
-        <div class="why-card"><div class="why-icon">⭐</div><div class="why-title">Favoris</div><p class="why-desc">Sauvegarde les produits qui t'intéressent pour les retrouver facilement.</p></div>
-        <div class="why-card"><div class="why-icon">📱</div><div class="why-title">Application mobile</div><p class="why-desc">KICKIQ dans ta poche, avec une expérience pensée pour le mobile.</p></div>
-        <div class="why-card"><div class="why-icon">🎛️</div><div class="why-title">Tableau de bord joueur</div><p class="why-desc">Une personnalisation avancée et un tableau de bord centralisant ton profil.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-</div>
 <div class="page" id="page-contact">
 <section style="background:var(--black3);padding:80px 48px">
   <div style="max-width:900px;margin:0 auto">
@@ -1481,7 +1446,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
       </div>
     </div>
     <div class="footer-col"><h4>Plateforme</h4><ul class="footer-links"><li><a onclick="showPage('quiz')">Analyse profil</a></li><li><a onclick="showPage('comparateur')">Comparateur</a></li><li><a onclick="showPage('equipements')">Catalogue</a></li></ul></div>
-    <div class="footer-col"><h4>Profils</h4><ul class="footer-links"><li><a onclick="showPage('home')">Par poste</a></li><li><a onclick="showPage('home')">Par style</a></li><li><a onclick="showPage('roadmap')">Roadmap</a></li></ul></div>
+    <div class="footer-col"><h4>Profils</h4><ul class="footer-links"><li><a onclick="showPage('home')">Par poste</a></li><li><a onclick="showPage('home')">Par style</a></li></ul></div>
     <div class="footer-col"><h4>Info</h4><ul class="footer-links"><li><a onclick="showPage('about')">À propos</a></li><li><a onclick="showPage('contact')">Contact</a></li><li><a onclick="showPage('mentions')">Mentions légales</a></li><li><a onclick="showPage('confidentialite')">Confidentialité</a></li><li><a onclick="showPage('cookies')">Politique cookies</a></li></ul></div>
   </div>
   <div class="footer-bottom">
@@ -1561,7 +1526,7 @@ function kiqToast(msg, type='success') {
 // ════════════════════════════════════════════════════════════
 //  NAVIGATION
 // ════════════════════════════════════════════════════════════
-const pages = ['home','quiz','result','comparateur','equipements','about','roadmap','contact','mentions','confidentialite','cookies'];
+const pages = ['home','quiz','result','comparateur','equipements','about','contact','mentions','confidentialite','cookies'];
 let currentPage = 'home';
 
 function showPage(id) {
