@@ -726,23 +726,42 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
 #tarteaucitron #tarteaucitronMainLineOffset{
   border-bottom:1px solid rgba(27,255,255,0.30)!important
 }
-/* RETOUCHE 1 — "Préférences pour tous les services" ──────────
-   Blanc pur forcé sur le titre ET ses enfants directs pour écraser
-   toute couleur native injectée par tarteaucitron (span, b…).
-   Taille, police et position inchangées. */
+/* CORRECTION — "Préférences pour tous les services" ──────────
+   Le HTML réel généré par tarteaucitron place ce texte dans un <b>
+   à l'intérieur de  .tarteaucitronMainLine > .tarteaucitronName
+   (et NON dans .tarteaucitronH1 — d'où l'échec des règles
+   précédentes). On cible donc le vrai élément.
+   → Blanc pur #FFFFFF. Police et position inchangées.
+   → Taille ramenée à 15px pour rester cohérente avec les titres
+     de service (eux aussi à 15px) : plus de déséquilibre. */
+#tarteaucitron .tarteaucitronMainLine .tarteaucitronName,
+#tarteaucitron .tarteaucitronMainLine .tarteaucitronName b,
+#tarteaucitron .tarteaucitronMainLine .tarteaucitronName strong,
+#tarteaucitron #tarteaucitronMainLineOffset .tarteaucitronName,
+#tarteaucitron #tarteaucitronMainLineOffset .tarteaucitronName b,
 #tarteaucitron #tarteaucitronMainLineOffset .tarteaucitronH1,
-#tarteaucitron #tarteaucitronMainLineOffset .tarteaucitronH1 *,
-#tarteaucitron .tarteaucitronH1,
-#tarteaucitron .tarteaucitronH1 *,
+#tarteaucitron .tarteaucitronH1{
+  color:#FFFFFF!important;
+  font-size:15px!important;
+  font-weight:700!important
+}
+/* Le libellé du bloc info ("Protéger votre vie privée") reste blanc
+   et lisible, sans surdimensionnement. */
 #tarteaucitron #tarteaucitronInfo{
-  color:#FFFFFF!important
+  color:#FFFFFF!important;
+  font-size:15px!important
 }
 
 /* ── 3. TEXTES DU BANDEAU PRINCIPAL ──────────────────────────
-   Disclaimer en blanc sur noir : ratio > 14:1 (WCAG AAA). */
+   Disclaimer (texte demandant d'autoriser/refuser tous les cookies)
+   en blanc sur noir : ratio > 14:1 (WCAG AAA).
+   HARMONISATION : taille fixée à 15px, cohérente avec le libellé
+   "Préférences pour tous les services" et les titres de service. */
 #tarteaucitronAlertBig #tarteaucitronDisclaimerAlert,
 #tarteaucitronAlertBig #tarteaucitronDisclaimerAlert b{
-  color:var(--white,#F5F5F5)!important
+  color:var(--white,#F5F5F5)!important;
+  font-size:15px!important;
+  line-height:1.5!important
 }
 
 /* ── 4. FOND DU PANNEAU DE SERVICES ──────────────────────────
@@ -782,15 +801,15 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
 /* ── 5. TITRES DE SERVICE ("Cookies obligatoires",
          "Mesure d'audience", "Clarity", "Google Analytics") ──
    Vert néon (#B4FF2E) sur fond #171717 → ratio ~8:1 (WCAG AAA).
-   RETOUCHE 4 : font-size 15px → 17px (+13%) pour Clarity et GA4 ;
-   les titres de catégories obligatoires héritent de cette taille. */
+   HARMONISATION : ramené à 15px pour rester cohérent avec le reste
+   du panneau (les 17px précédents rendaient Clarity/GA4 trop grands). */
 #tarteaucitronServices .tarteaucitronTitle button,
 #tarteaucitron #tarteaucitronServices .tarteaucitronH3,
 #tarteaucitron #tarteaucitronServices .tarteaucitronHidden>h3{
   color:var(--neon,#B4FF2E)!important;
   font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif!important;
   font-weight:800!important;
-  font-size:17px!important;
+  font-size:15px!important;
   letter-spacing:0.04em!important;
   text-transform:uppercase!important
 }
