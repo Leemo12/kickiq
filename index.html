@@ -59,7 +59,22 @@
       "url": "https://www.kickiq.eu/",
       "description": "KICKIQ analyse le profil du joueur et recommande les équipements de football adaptés à son style de jeu.",
       "logo": "https://www.kickiq.eu/kickiq-primary-onblack.png",
-      "email": "contact@kickiq.eu"
+      "email": "contact@kickiq.eu",
+      "legalName": "Lee-Morgan BONA EI",
+      "alternateName": "KickIQ",
+      "telephone": "+33756937932",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "SIREN",
+        "value": "103684510"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "25 Boulevard des Dames",
+        "postalCode": "13002",
+        "addressLocality": "Marseille",
+        "addressCountry": "FR"
+      }
     }
   ]
 }
@@ -459,6 +474,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
 .compare-dyn-table .cd-cell:nth-last-child(-n+1){border-right:none}
 .cd-offer{display:inline-block;width:100%;text-align:center;font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--black);background:var(--neon);padding:10px 16px;border-radius:2px;text-decoration:none;transition:all 0.2s}
 .cd-offer:hover{background:var(--neon2)}
+.offer-soon{background:rgba(180,255,46,0.18);color:var(--gray2);cursor:default;pointer-events:none}
 
 /* ── COMPARATEUR : CARTES EMPILÉES (MOBILE) ── */
 .compare-cards{display:none;flex-direction:column;gap:16px}
@@ -973,7 +989,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
   <div class="why-grid">
     <div class="why-card"><div class="why-icon">❓</div><div class="why-title">1 · Réponds aux questions</div><p class="why-desc">Poste, style de jeu, terrain principal, niveau de jeu, budget. 6 questions, 30 secondes.</p></div>
     <div class="why-card"><div class="why-icon">🎯</div><div class="why-title">2 · Ton profil joueur</div><p class="why-desc">KICKIQ identifie ton archétype parmi nos profils inspirés de FC 26 : ailier explosif, meneur créatif, défenseur solide…</p></div>
-    <div class="why-card"><div class="why-icon blue">👟</div><div class="why-title">3 · Tes recommandations</div><p class="why-desc">Nike Mercurial, Adidas Predator, Puma Future, Kipsta… Les vrais modèles taillés pour ton profil, avec le meilleur prix du marché.</p></div>
+    <div class="why-card"><div class="why-icon blue">👟</div><div class="why-title">3 · Tes recommandations</div><p class="why-desc">Nike Mercurial, Adidas Predator, Puma Future, Kipsta… Les vrais modèles taillés pour ton profil, avec des prix indicatifs à vérifier auprès des vendeurs.</p></div>
   </div>
   <div style="text-align:center;margin-top:40px">
     <button class="btn-neon" style="font-size:15px;padding:16px 44px;font-weight:800;letter-spacing:0.1em" onclick="showPage('quiz');trackEvent('quiz_started',{source:'how_it_works'})">⚽ Commencer mon analyse gratuite</button>
@@ -1020,7 +1036,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
   </div>
   <div class="why-grid">
     <div class="why-card"><div class="why-icon">🧠</div><div class="why-title">Profil joueur</div><p class="why-desc">KICKIQ part de ton poste, ton style, ton terrain et ton budget avant de te proposer une sélection ciblée.</p></div>
-    <div class="why-card"><div class="why-icon blue">💰</div><div class="why-title">Affiliation transparente</div><p class="why-desc">Les liens redirigent vers nos partenaires revendeurs. On te dit clairement qu'on peut toucher une commission, sans surcoût pour toi.</p></div>
+    <div class="why-card"><div class="why-icon blue">💰</div><div class="why-title">Affiliation transparente</div><p class="why-desc">Les futurs liens marchands seront clairement signalés. KICKIQ pourra alors percevoir une commission, sans surcoût ajouté pour l'utilisateur.</p></div>
     <div class="why-card"><div class="why-icon">⚽</div><div class="why-title">Simple & gratuit</div><p class="why-desc">Pas de compte, pas d'inscription. 6 questions, une sélection claire de vrais équipements football adaptés à ton jeu.</p></div>
     <div class="why-card"><div class="why-icon blue">🎮</div><div class="why-title">Styles FC 26</div><p class="why-desc">Les profils de jeu rendent l'expérience plus parlante pour les joueurs de 14 à 35 ans.</p></div>
     <div class="why-card"><div class="why-icon">🌍</div><div class="why-title">Timing Coupe du Monde</div><p class="why-desc">Lancé au moment du Mondial 2026 pour accompagner les joueurs et les passionnés pendant la compétition.</p></div>
@@ -1193,6 +1209,8 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
     <div class="reco-grid" id="recoAccessoires"></div>
   </div>
 
+  <div style="text-align:center;margin-bottom:32px"><a onclick="showPage('comparateur-info')" style="font-size:13px;color:var(--neon);text-decoration:none;cursor:pointer">Comprendre la sélection et le classement des produits</a></div>
+
   <div style="text-align:center;padding:36px;background:var(--card);border:1px solid var(--border);border-radius:4px">
     <div style="font-family:'Space Mono','Courier New',Courier,monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--neon);margin-bottom:10px">Tu veux affiner ?</div>
     <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:900;font-size:28px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Refaire l'analyse</h3>
@@ -1206,7 +1224,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
 <!-- PAGE : COMPARATEUR -->
 <div class="page" id="page-comparateur">
 <section style="background:var(--black3);padding:80px 48px">
-  <div class="section-header"><div><div class="section-eyebrow">Comparateur</div><h2 class="section-title">Ma sélection <span class="dim">à comparer</span></h2><p class="section-sub">Compare jusqu'à 6 équipements côte à côte pour faire le bon choix.</p></div></div>
+  <div class="section-header"><div><div class="section-eyebrow">Comparateur</div><h2 class="section-title">Ma sélection <span class="dim">à comparer</span></h2><p class="section-sub">Compare jusqu'à 6 équipements côte à côte pour faire le bon choix.</p><p style="font-size:13px;margin-top:8px"><a onclick="showPage('comparateur-info')" style="color:var(--neon);text-decoration:none;cursor:pointer">Comment fonctionne le comparateur ?</a></p></div></div>
   <div id="compareHost"></div>
   <div style="text-align:center;margin-top:36px"><p style="font-size:14px;color:var(--gray2);margin-bottom:14px">Tu ne sais pas par où commencer ?</p><button class="btn-neon" onclick="showPage('quiz');trackEvent('quiz_started',{source:'comparateur'})">⚽ Faire mon analyse personnalisée</button></div>
 </section>
@@ -1252,7 +1270,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
         </div>
         <div style="background:rgba(180,255,46,0.05);border:1px solid rgba(180,255,46,0.2);border-radius:4px;padding:28px">
           <h4 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--neon);margin-bottom:10px">Transparence sur l'affiliation</h4>
-          <p style="font-size:14px;color:var(--gray2);line-height:1.7">KICKIQ utilise des liens affiliés. On peut toucher une commission si tu achètes via nos liens, sans surcoût pour toi. Les recommandations ne sont pas influencées par ces commissions : on sélectionne ce qui est le plus adapté à ton profil.</p>
+          <p style="font-size:14px;color:var(--gray2);line-height:1.7">À ce jour, aucun lien marchand actif n'est présent sur KICKIQ. Lorsqu'un lien affilié sera activé, KICKIQ pourra percevoir une commission si un achat est réalisé par son intermédiaire, sans surcoût ajouté pour l'utilisateur. Les recommandations ne seront pas influencées par cette rémunération.</p>
         </div>
       </div>
     </div>
@@ -1260,7 +1278,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
       <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:26px;text-transform:uppercase;color:var(--white);margin-bottom:16px">Pourquoi faire confiance à KICKIQ</h3>
       <div class="why-grid">
         <div class="why-card"><div class="why-icon">🎯</div><div class="why-title">Indépendant</div><p class="why-desc">Les recommandations partent de ton profil de joueur, pas des marques. Aucune commission n'influence la sélection.</p></div>
-        <div class="why-card"><div class="why-icon blue">🔍</div><div class="why-title">Transparent</div><p class="why-desc">Les liens affiliés sont clairement signalés, sans surcoût pour toi. Tu sais toujours comment KICKIQ se finance.</p></div>
+        <div class="why-card"><div class="why-icon blue">🔍</div><div class="why-title">Transparent</div><p class="why-desc">Les liens commerciaux actifs seront clairement signalés. Tu sauras toujours lorsqu'un lien peut rémunérer KICKIQ.</p></div>
         <div class="why-card"><div class="why-icon">⚽</div><div class="why-title">Pensé par des passionnés</div><p class="why-desc">Un projet créé par des passionnés de football, centré sur un seul objectif : t'aider à mieux t'équiper.</p></div>
       </div>
     </div>
@@ -1297,10 +1315,13 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
         <div class="form-field"><label class="form-label">Sujet</label><select class="form-input" id="contactSubject" style="cursor:pointer"><option value="">Sélectionne un sujet</option><option>Suggestion produit</option><option>Partenariat / Affiliation</option><option>Signaler une erreur</option><option>Question sur KICKIQ</option><option>Autre</option></select></div>
         <div class="form-field"><label class="form-label">Message</label><textarea class="form-textarea" placeholder="Ton message..." id="contactMessage"></textarea></div>
         <button class="form-submit" onclick="submitContact()">Envoyer →</button>
+        <p style="font-size:11px;color:var(--gray);line-height:1.6;margin-top:12px">En cliquant sur « Envoyer », ton application de messagerie s'ouvrira avec un email prérempli. Aucune donnée saisie dans ces champs n'est automatiquement enregistrée sur un serveur KICKIQ. Consulte notre <a onclick="showPage('confidentialite')" style="color:var(--neon);text-decoration:none;cursor:pointer">politique de confidentialité</a>.</p>
       </div>
       <div>
         <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;color:var(--white);margin-bottom:24px">Infos de contact</h3>
         <div class="contact-info-item"><span class="ci-icon">✉️</span><div><div class="ci-label">Email</div><div class="ci-value">contact@kickiq.eu</div></div></div>
+        <div class="contact-info-item"><span class="ci-icon">☎️</span><div><div class="ci-label">Téléphone</div><div class="ci-value"><a href="tel:+33756937932" style="color:inherit;text-decoration:none">07 56 93 79 32</a></div></div></div>
+        <div class="contact-info-item"><span class="ci-icon">📍</span><div><div class="ci-label">Adresse professionnelle</div><div class="ci-value">25 Boulevard des Dames<br>13002 Marseille, France</div></div></div>
         <div style="margin-top:24px;padding:22px;background:rgba(180,255,46,0.05);border:1px solid rgba(180,255,46,0.15);border-radius:4px">
           <h4 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:17px;text-transform:uppercase;color:var(--neon);margin-bottom:8px">Partenariats</h4>
           <p style="font-size:13px;color:var(--gray2);line-height:1.6">Tu es une marque ou un revendeur de matériel football ? On est ouverts aux discussions pour des partenariats affiliés. Écris-nous par email.</p>
@@ -1316,25 +1337,27 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
 <div class="page" id="page-mentions">
 <section style="background:var(--black3);padding:80px 48px">
   <div style="max-width:820px;margin:0 auto">
-    <button onclick="history.back?history.back():showPage('home')" style="font-family:'Space Mono','Courier New',Courier,monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray2);background:none;border:1px solid var(--border);padding:8px 16px;border-radius:2px;cursor:pointer;margin-bottom:40px">← Retour</button>
+    <button onclick="showPage('home')" style="font-family:'Space Mono','Courier New',Courier,monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray2);background:none;border:1px solid var(--border);padding:8px 16px;border-radius:2px;cursor:pointer;margin-bottom:40px">← Retour</button>
     <div class="section-eyebrow">Légal</div>
     <h2 class="section-title" style="margin-bottom:48px">Mentions <span class="dim">légales</span></h2>
     <div style="display:flex;flex-direction:column;gap:32px;font-size:15px;color:var(--gray2);line-height:1.8">
       <div>
         <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Éditeur du site</h3>
-        <p>Le site KICKIQ est édité à titre personnel.<br>Directeur de la publication : KICKIQ<br>Contact : <a href="mailto:contact@kickiq.eu" style="color:var(--neon);text-decoration:none">contact@kickiq.eu</a></p>
+        <p>Le site KICKIQ est édité par Lee-Morgan BONA, entrepreneur individuel (EI) exerçant sous le nom commercial KickIQ.<br>Adresse professionnelle : 25 Boulevard des Dames, 13002 Marseille, France.<br>SIREN : 103 684 510.<br>SIRET : 103 684 510 00011.<br>Immatriculation : Registre national des entreprises (RNE) et Registre du commerce et des sociétés (RCS) de Marseille.<br>Code APE : 47.91A — Vente à distance sur catalogue général.<br>TVA non applicable, article 293 B du CGI.<br>Email : <a href="mailto:contact@kickiq.eu" style="color:var(--neon);text-decoration:none">contact@kickiq.eu</a>.<br>Téléphone : <a href="tel:+33756937932" style="color:var(--neon);text-decoration:none">07 56 93 79 32</a>.<br>Directeur de la publication : Lee-Morgan BONA.</p>
       </div>
       <div>
         <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Hébergement</h3>
-        <p>Ce site est hébergé par Vercel Inc., 340 Pine Street, Suite 701, San Francisco, CA 94104, États-Unis.</p>
+        <p>Ce site est hébergé par Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, États-Unis. Téléphone : +1 559 288 7060.</p>
       </div>
       <div>
         <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Propriété intellectuelle</h3>
-        <p>L'ensemble des contenus du site KICKIQ (textes, visuels, code, algorithmes de recommandation) est la propriété exclusive de KICKIQ. Toute reproduction, même partielle, est interdite sans autorisation préalable.</p>
+        <p>Les contenus propres à KICKIQ, notamment les textes, la structure, la présentation, les éléments graphiques originaux et les éléments de code spécifiquement développés pour le site, sont protégés par le droit de la propriété intellectuelle. Toute reproduction ou réutilisation de ces contenus sans autorisation préalable est interdite, sous réserve des exceptions prévues par la loi.</p>
+        <p style="margin-top:10px">Les marques, logos, noms de produits, visuels et autres contenus appartenant à des tiers restent la propriété de leurs titulaires respectifs.</p>
+        <p style="margin-top:10px">Ces éléments tiers sont utilisés uniquement à titre référentiel afin d'identifier, de présenter, de comparer ou de recommander les équipements concernés. Leur présence ne confère à KICKIQ aucun droit de propriété sur ces éléments.</p>
       </div>
       <div>
         <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Responsabilité</h3>
-        <p>Les recommandations de KICKIQ sont fournies à titre indicatif. KICKIQ ne peut être tenu responsable des décisions d'achat effectuées sur la base des informations publiées. Les prix et disponibilités des produits sont susceptibles de varier chez les revendeurs partenaires.</p>
+        <p>Les recommandations de KICKIQ sont fournies à titre indicatif. KICKIQ ne peut être tenu responsable des décisions d'achat effectuées sur la base des informations publiées. Les prix et disponibilités des produits sont susceptibles de varier chez les vendeurs tiers.</p>
       </div>
       <div>
         <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Liens externes</h3>
@@ -1354,22 +1377,42 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
     <h2 class="section-title" style="margin-bottom:48px">Politique de <span class="dim">confidentialité</span></h2>
     <div style="display:flex;flex-direction:column;gap:32px;font-size:15px;color:var(--gray2);line-height:1.8">
       <div>
+  <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Responsable du traitement</h3>
+  <p>Le responsable du traitement est Lee-Morgan BONA, entrepreneur individuel exerçant sous le nom commercial KickIQ, domicilié au 25 Boulevard des Dames, 13002 Marseille, France. Pour toute question relative aux données personnelles, tu peux écrire à <a href="mailto:contact@kickiq.eu" style="color:var(--neon);text-decoration:none">contact@kickiq.eu</a>.</p>
+</div>
+      <div>
         <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Données collectées</h3>
-        <p>KICKIQ ne collecte aucune donnée personnelle sans ton consentement. Le quiz de recommandation fonctionne entièrement en mémoire locale, sans envoi de données vers un serveur. Aucun compte utilisateur n'est requis.</p>
-        <p style="margin-top:10px">Si tu nous écris via le formulaire de contact, ton nom et ton adresse email sont utilisés uniquement pour te répondre. Ces informations ne sont ni vendues ni transmises à des tiers.</p>
+        <p>Le quiz de recommandation fonctionne localement dans ton navigateur. Les réponses au quiz, notamment l'âge, le poste, le style de jeu, le niveau, le terrain et le budget, ne sont ni enregistrées dans une base de données KICKIQ ni transmises à un serveur KICKIQ. Aucun compte utilisateur n'est créé.</p>
+        <p style="margin-top:10px">Le formulaire de contact ne réalise aucun envoi automatique vers un serveur KICKIQ : il ouvre l'application de messagerie de l'utilisateur avec un email prérempli. Si l'utilisateur décide ensuite d'envoyer cet email, KICKIQ reçoit les informations qu'il a volontairement communiquées, notamment son nom, son adresse email, le sujet et le contenu de son message.</p>
+        <p style="margin-top:10px">Lorsque les cookies de mesure d'audience ont été acceptés, un événement technique indiquant l'utilisation du formulaire peut être transmis aux outils de mesure d'audience. Le nom, l'adresse email et le contenu du message ne sont pas inclus dans cet événement.</p>
       </div>
+      <div>
+  <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Finalités, bases légales et conservation</h3>
+  <p>Les messages envoyés à KICKIQ sont utilisés uniquement pour répondre aux demandes, traiter les signalements et échanger au sujet d'un éventuel partenariat. Selon l'objet du message, le traitement repose sur l'intérêt légitime de KICKIQ à répondre aux demandes reçues ou sur l'exécution de mesures précontractuelles prises à la demande de la personne concernée. Les messages et coordonnées associés sont conservés pendant un maximum de 12 mois à compter du dernier échange, sauf obligation légale ou nécessité de conserver certains éléments pour la constatation, l'exercice ou la défense de droits en justice.</p>
+  <p style="margin-top:10px">Les messages sont accessibles uniquement à Lee-Morgan BONA et, dans la mesure nécessaire au fonctionnement de la messagerie, au prestataire technique associé à l'adresse contact@kickiq.eu. Ils ne sont ni vendus ni utilisés pour de la prospection commerciale sans consentement.</p>
+</div>
       <div>
         <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Cookies & mesure d'audience</h3>
         <p>Avec ton consentement uniquement, KICKIQ utilise Google Analytics 4 et Microsoft Clarity pour mesurer l'audience et l'usage du site (pages visitées, durée, origine, parcours de navigation). Aucun de ces outils n'est activé tant que tu n'as pas accepté via le bandeau de consentement.</p>
         <p style="margin-top:10px">Tu peux accorder, refuser ou retirer ton consentement à tout moment. Le détail des cookies, leurs durées de conservation et le bouton de gestion se trouvent sur notre <a onclick="showPage('cookies')" style="color:var(--neon);text-decoration:none;cursor:pointer">politique cookies</a>.</p>
       </div>
       <div>
+  <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Prestataires techniques et transferts</h3>
+  <p>Le site est hébergé par Vercel. Son fonctionnement peut nécessiter le traitement de données techniques, notamment l'adresse IP, les journaux de sécurité et les informations nécessaires à la transmission des pages. Le site charge également ses polices de caractères depuis Google Fonts. Avec le consentement de l'utilisateur uniquement, Google Analytics 4 et Microsoft Clarity peuvent traiter des données de navigation à des fins de mesure d'audience et d'analyse d'usage.</p>
+  <p style="margin-top:10px">Certains de ces prestataires appartiennent à des groupes établis ou susceptibles de traiter des données en dehors de l'Espace économique européen. Ces transferts sont encadrés, selon les situations, par une décision d'adéquation, des clauses contractuelles types de la Commission européenne ou toute autre garantie appropriée prévue par le RGPD.</p>
+</div>
+      <div>
+  <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Protection des mineurs</h3>
+  <p>KICKIQ peut être utilisé par des personnes mineures. L'âge indiqué dans le quiz et les autres réponses restent en mémoire locale dans ton navigateur : ils ne sont ni enregistrés ni transmis à un serveur, et aucun compte n'est créé. Si tu as moins de 15 ans, le consentement à l'activation des cookies de mesure d'audience doit être donné conjointement par toi et par un parent ou représentant légal titulaire de l'autorité parentale. Demande-lui son accord avant d'accepter ces cookies.</p>
+</div>
+      <div>
         <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Tes droits (RGPD)</h3>
-        <p>Conformément au RGPD, tu disposes d'un droit d'accès, de rectification et de suppression de tes données. Pour exercer ces droits, contacte-nous à <a href="mailto:contact@kickiq.eu" style="color:var(--neon);text-decoration:none">contact@kickiq.eu</a>.</p>
+        <p>Selon les conditions prévues par le RGPD, tu peux demander l'accès à tes données, leur rectification, leur effacement, la limitation de leur traitement ou leur portabilité, et t'opposer à certains traitements. Tu peux également retirer à tout moment un consentement déjà donné, sans remettre en cause la licéité du traitement effectué auparavant. Pour exercer tes droits ou poser une question, écris à <a href="mailto:contact@kickiq.eu" style="color:var(--neon);text-decoration:none">contact@kickiq.eu</a>. Si tu estimes, après nous avoir contactés, que tes droits ne sont pas respectés, tu peux adresser une réclamation à la <a href="https://www.cnil.fr/" target="_blank" rel="noopener noreferrer" style="color:var(--neon);text-decoration:none">CNIL</a>.</p>
       </div>
       <div>
-        <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Liens affiliés</h3>
-        <p>Certains liens présents sur KICKIQ sont des liens affiliés. Cela signifie que KICKIQ peut percevoir une commission sur les achats effectués via ces liens, sans surcoût pour toi. Cette pratique est indiquée de manière transparente sur le site.</p>
+        <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Liens commerciaux et affiliation</h3>
+        <p>À la date de mise à jour de cette politique, aucun lien marchand actif n'est présent sur KICKIQ. KICKIQ prévoit de se rémunérer ultérieurement par affiliation. Lorsqu'un lien affilié sera activé, il pourra permettre à KICKIQ de percevoir une commission si un achat est réalisé par son intermédiaire, sans surcoût ajouté par KICKIQ. Les liens commerciaux actifs seront identifiés de manière transparente.</p>
+        <p style="font-size:12px;color:var(--gray);margin-top:8px">Dernière mise à jour : 27 août 2026.</p>
       </div>
     </div>
   </div>
@@ -1389,10 +1432,14 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
         <p>Un cookie est un petit fichier déposé sur ton appareil lors de la visite d'un site. Il permet de mémoriser des informations (mesure d'audience, préférences). KICKIQ ne dépose aucun cookie de mesure tant que tu n'as pas donné ton accord via le bandeau de consentement.</p>
       </div>
       <div>
+  <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Cookie strictement nécessaire</h3>
+  <p>Le cookie <code>kickiq_consent</code> est un cookie technique strictement nécessaire, déposé par KICKIQ via tarteaucitron.js. Il mémorise tes choix concernant les cookies de mesure d'audience afin de ne pas te demander de nouveau la même décision à chaque visite. Il peut être présent après une acceptation comme après un refus. Il ne sert ni à mesurer l'audience ni à suivre ta navigation et ne nécessite pas ton consentement. Durée de conservation : jusqu'à 12 mois. Chemin : <code>/</code>.</p>
+</div>
+      <div>
         <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Cookies de mesure d'audience</h3>
         <p>Avec ton consentement, KICKIQ utilise deux outils de mesure d'audience pour comprendre comment le site est utilisé et l'améliorer :</p>
-        <p style="margin-top:14px"><strong style="color:var(--white)">Google Analytics 4</strong> — mesure d'audience (pages vues, durée de visite, origine du trafic). Cookies : <code>_ga</code>, <code>_ga_*</code>. Durée de conservation : jusqu'à 13 mois. Responsable : Google Ireland Ltd.</p>
-        <p style="margin-top:10px"><strong style="color:var(--white)">Microsoft Clarity</strong> — analyse d'usage (cartes de chaleur, parcours de navigation). Cookies : <code>_clck</code>, <code>_clsk</code>, <code>CLID</code> et apparentés. Durée de conservation : jusqu'à 12 mois. Responsable : Microsoft Corporation.</p>
+        <p style="margin-top:14px"><strong style="color:var(--white)">Google Analytics 4</strong> — mesure d'audience (pages vues, durée de visite, origine du trafic). Cookies : <code>_ga</code>, <code>_ga_*</code>. Durée de conservation : jusqu'à 13 mois. Sous-traitant : Google Ireland Ltd.</p>
+        <p style="margin-top:10px"><strong style="color:var(--white)">Microsoft Clarity</strong> — analyse d'usage (cartes de chaleur, parcours de navigation). Cookies : <code>_clck</code>, <code>_clsk</code>, <code>CLID</code> et apparentés. Durée de conservation : jusqu'à 12 mois. Sous-traitant : Microsoft Corporation.</p>
       </div>
       <div>
         <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Base légale</h3>
@@ -1412,6 +1459,102 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
 </section>
 </div>
 
+<!-- PAGE : FONCTIONNEMENT DU COMPARATEUR -->
+<div class="page" id="page-comparateur-info">
+<section style="background:var(--black3);padding:80px 48px">
+  <div style="max-width:820px;margin:0 auto">
+    <button onclick="showPage('comparateur')" style="font-family:'Space Mono','Courier New',Courier,monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray2);background:none;border:1px solid var(--border);padding:8px 16px;border-radius:2px;cursor:pointer;margin-bottom:40px">← Retour</button>
+    <div class="section-eyebrow">Transparence</div>
+    <h2 class="section-title" style="margin-bottom:48px">Fonctionnement du <span class="dim">comparateur</span></h2>
+    <div style="display:flex;flex-direction:column;gap:32px;font-size:15px;color:var(--gray2);line-height:1.8">
+      <div>
+        <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Nature du service</h3>
+        <p>KICKIQ est un service indépendant de recommandation et de comparaison d'équipements de football. KICKIQ ne vend pas directement les produits présentés et n'intervient pas dans la transaction conclue, le cas échéant, sur le site d'un vendeur tiers. Le comparateur permet à l'utilisateur de sélectionner jusqu'à six équipements et de les afficher côte à côte.</p>
+      </div>
+      <div>
+        <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Critères des recommandations</h3>
+        <p>Les recommandations sont établies à partir des réponses fournies dans le quiz : poste, style de jeu, niveau de pratique, type de terrain et budget. Ces critères servent à identifier les équipements considérés comme les plus adaptés au profil du joueur. La mention « Meilleur choix » correspond à la meilleure adéquation calculée entre ces critères et les caractéristiques enregistrées pour les produits. Aucune rémunération ne modifie ce classement.</p>
+      </div>
+      <div>
+        <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Ordre dans le comparateur</h3>
+        <p>Le comparateur n'établit pas de classement commercial entre les produits sélectionnés. Les équipements apparaissent dans l'ordre où l'utilisateur les ajoute. Ils sont ensuite rapprochés selon les informations disponibles, notamment le prix indicatif, la marque, le modèle, le profil conseillé, la priorité, le toucher, la traction, la protection, le confort, les avantages et les inconvénients.</p>
+      </div>
+      <div>
+        <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Référencement et exhaustivité</h3>
+        <p>Les produits présentés font l'objet d'une sélection éditoriale et technique réalisée par KICKIQ. Cette sélection n'est pas exhaustive : elle ne couvre pas toutes les marques, tous les modèles, tous les vendeurs ni toutes les offres disponibles sur le marché. À la date de mise à jour de cette rubrique, les données de KICKIQ contiennent des références issues de six marques et aucun site marchand n'est encore relié par un lien d'offre actif.</p>
+      </div>
+      <div>
+        <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Relations avec les professionnels et affiliation</h3>
+        <p>KICKIQ ne détient aucun lien capitalistique avec les marques ou les vendeurs mentionnés. À la date de mise à jour de cette rubrique, aucun référencement payant et aucun lien marchand actif n'influencent les produits affichés. KICKIQ prévoit de se rémunérer par affiliation : lorsqu'un lien affilié sera activé, KICKIQ pourra percevoir une commission si un achat est réalisé par son intermédiaire, sans surcoût ajouté par KICKIQ. Cette rémunération n'aura aucun impact sur la sélection, la recommandation ou l'ordre des produits.</p>
+      </div>
+      <div>
+        <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Prix, frais et garanties</h3>
+        <p>Les prix affichés sur KICKIQ sont indicatifs et correspondent aux informations disponibles lors de leur dernière vérification. Ils ne constituent pas une offre de vente et peuvent évoluer. Le prix définitif, la disponibilité, les éventuels frais de livraison ou autres frais supplémentaires ainsi que les conditions de paiement sont ceux indiqués par le vendeur avant la commande. KICKIQ n'ajoute aucuns frais au prix payé. Les garanties légales ou commerciales peuvent varier selon le produit et le vendeur ; seules les conditions présentées par le vendeur au moment de l'achat font foi.</p>
+      </div>
+      <div>
+        <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Actualisation des informations</h3>
+        <p>Les fiches produits, caractéristiques et prix sont vérifiés et mis à jour manuellement, sans actualisation automatique en temps réel. Les vérifications sont effectuées lors de l'ajout ou de la modification d'un produit, lors de l'activation ou de la modification d'un lien marchand et lorsqu'une information inexacte est signalée. Aucune périodicité fixe n'est garantie. Dernière mise à jour de cette rubrique : 26 août 2026.</p>
+        <p style="margin-top:10px">Pour signaler une information inexacte ou obsolète, contacte KICKIQ à <a href="mailto:contact@kickiq.eu" style="color:var(--neon);text-decoration:none">contact@kickiq.eu</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- PAGE : CONDITIONS GENERALES D'UTILISATION -->
+<div class="page" id="page-cgu">
+<section style="background:var(--black3);padding:80px 48px">
+  <div style="max-width:820px;margin:0 auto">
+    <button onclick="showPage('home')" style="font-family:'Space Mono','Courier New',Courier,monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray2);background:none;border:1px solid var(--border);padding:8px 16px;border-radius:2px;cursor:pointer;margin-bottom:40px">← Retour</button>
+    <div class="section-eyebrow">Légal</div>
+    <h2 class="section-title" style="margin-bottom:48px">Conditions générales <span class="dim">d'utilisation</span></h2>
+    <div style="display:flex;flex-direction:column;gap:32px;font-size:15px;color:var(--gray2);line-height:1.8">
+      <div>
+        <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Objet</h3>
+        <p>Les présentes conditions générales d'utilisation encadrent l'accès au site KICKIQ et l'utilisation de ses services de recommandation, de catalogue et de comparaison d'équipements de football.</p>
+      </div>
+      <div>
+        <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Accès au service</h3>
+        <p>KICKIQ est accessible gratuitement et sans création de compte. L'accès au site nécessite un appareil et une connexion à Internet, dont les coûts restent à la charge de l'utilisateur. KICKIQ peut faire évoluer, suspendre ou interrompre temporairement tout ou partie du service, notamment pour des raisons de maintenance, de sécurité ou de mise à jour.</p>
+      </div>
+      <div>
+        <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Nature des recommandations</h3>
+        <p>Les recommandations et comparaisons sont produites à partir des réponses fournies par l'utilisateur et des caractéristiques enregistrées pour les produits. Elles sont fournies à titre informatif et ne constituent ni un conseil professionnel personnalisé, ni une garantie de performance, ni une offre de vente.</p>
+      </div>
+      <div>
+        <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Produits, prix et vendeurs tiers</h3>
+        <p>KICKIQ ne vend pas directement les produits présentés et n'intervient pas dans les transactions éventuellement conclues avec un vendeur tiers. Les prix sont indicatifs. Le prix définitif, la disponibilité, les frais, les conditions de paiement, de livraison, de retour et de garantie sont ceux communiqués par le vendeur avant la commande.</p>
+      </div>
+      <div>
+        <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Affiliation</h3>
+        <p>À la date de mise à jour des présentes conditions, aucun lien marchand actif n'est disponible. Lorsque des liens affiliés seront activés, KICKIQ pourra percevoir une commission en cas d'achat réalisé par leur intermédiaire, sans surcoût ajouté par KICKIQ. Cette rémunération n'influencera pas la sélection, la recommandation ou l'ordre des produits.</p>
+      </div>
+      <div>
+        <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Utilisation du site</h3>
+        <p>L'utilisateur s'engage à utiliser KICKIQ de manière licite, à ne pas perturber son fonctionnement, à ne pas tenter d'accéder sans autorisation à ses systèmes et à ne pas extraire ou réutiliser de manière substantielle les contenus ou données du site en dehors des usages autorisés par la loi.</p>
+      </div>
+      <div>
+        <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Propriété intellectuelle</h3>
+        <p>Les contenus propres à KICKIQ sont protégés conformément aux indications figurant dans les mentions légales. Les marques, logos, noms, visuels et contenus appartenant à des tiers restent la propriété de leurs titulaires respectifs.</p>
+      </div>
+      <div>
+        <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Responsabilité</h3>
+        <p>KICKIQ s'efforce de fournir des informations utiles et compréhensibles, mais ne garantit pas l'absence permanente d'erreur, l'exhaustivité du catalogue, la disponibilité continue du service ni l'actualisation en temps réel des prix. Dans les limites autorisées par la loi, l'utilisateur reste responsable de ses choix, de la vérification des informations auprès du vendeur et de l'utilisation qu'il fait du site.</p>
+      </div>
+      <div>
+        <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Données personnelles et cookies</h3>
+        <p>Le traitement des données personnelles et l'utilisation des cookies sont décrits dans la politique de confidentialité et la politique cookies, accessibles depuis le footer. Le quiz reste utilisable sans accepter les cookies de mesure d'audience.</p>
+      </div>
+      <div>
+        <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Droit applicable et contact</h3>
+        <p>Les présentes conditions sont soumises au droit français. Toute difficulté peut d'abord être signalée à KICKIQ à <a href="mailto:contact@kickiq.eu" style="color:var(--neon);text-decoration:none">contact@kickiq.eu</a> afin de rechercher une solution amiable. À défaut, les règles ordinaires de compétence juridictionnelle s'appliquent.</p>
+        <p style="font-size:12px;color:var(--gray);margin-top:8px">Dernière mise à jour : 27 août 2026.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
 <footer id="mainFooter">
   <div class="footer-grid">
     <div>
@@ -1423,11 +1566,11 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
     </div>
     <div class="footer-col"><h4>Plateforme</h4><ul class="footer-links"><li><a onclick="showPage('quiz')">Analyse profil</a></li><li><a onclick="showPage('comparateur')">Comparateur</a></li><li><a onclick="showPage('equipements')">Catalogue</a></li></ul></div>
     <div class="footer-col"><h4>Profils</h4><ul class="footer-links"><li><a onclick="showPage('home')">Par poste</a></li><li><a onclick="showPage('home')">Par style</a></li></ul></div>
-    <div class="footer-col"><h4>Info</h4><ul class="footer-links"><li><a onclick="showPage('about')">À propos</a></li><li><a onclick="showPage('contact')">Contact</a></li><li><a onclick="showPage('mentions')">Mentions légales</a></li><li><a onclick="showPage('confidentialite')">Confidentialité</a></li><li><a onclick="showPage('cookies')">Politique cookies</a></li></ul></div>
+    <div class="footer-col"><h4>Info</h4><ul class="footer-links"><li><a onclick="showPage('about')">À propos</a></li><li><a onclick="showPage('comparateur-info')">Fonctionnement du comparateur</a></li><li><a onclick="showPage('contact')">Contact</a></li><li><a onclick="showPage('mentions')">Mentions légales</a></li><li><a onclick="showPage('confidentialite')">Confidentialité</a></li><li><a onclick="showPage('cookies')">Politique cookies</a></li><li><a onclick="showPage('cgu')">Conditions d'utilisation</a></li></ul></div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2026 KICKIQ · Comparateur de crampons football · Liens affiliés</div>
-    <div class="footer-legal"><a onclick="showPage('confidentialite')">Confidentialité</a><a onclick="showPage('mentions')">Mentions légales</a><a onclick="showPage('cookies')">Cookies</a><a onclick="if(typeof tarteaucitron!=='undefined'){tarteaucitron.userInterface.openPanel();}" style="cursor:pointer">Gérer mes cookies</a></div>
+    <div class="footer-copy">© 2026 KICKIQ · Comparateur d'équipements de football</div>
+    <div class="footer-legal"><a onclick="showPage('confidentialite')">Confidentialité</a><a onclick="showPage('mentions')">Mentions légales</a><a onclick="showPage('cookies')">Cookies</a><a onclick="showPage('cgu')">CGU</a><a onclick="if(typeof tarteaucitron!=='undefined'){tarteaucitron.userInterface.openPanel();}" style="cursor:pointer">Gérer mes cookies</a></div>
   </div>
 </footer>
 
@@ -1502,7 +1645,7 @@ function kiqToast(msg, type='success') {
 // ════════════════════════════════════════════════════════════
 //  NAVIGATION
 // ════════════════════════════════════════════════════════════
-const pages = ['home','quiz','result','comparateur','equipements','about','contact','mentions','confidentialite','cookies'];
+const pages = ['home','quiz','result','comparateur','comparateur-info','equipements','about','contact','mentions','confidentialite','cookies','cgu'];
 let currentPage = 'home';
 
 function showPage(id) {
@@ -1792,6 +1935,12 @@ function sockSVG(primary){
   return svgWrap(`
     <path d="M104 26 L138 26 C142 26 144 30 144 34 L144 78 C144 86 150 92 158 98 C170 106 172 120 162 128 C150 136 130 132 122 120 L110 102 C106 96 104 88 104 80 Z" fill="${primary}" fill-opacity="0.16" stroke="${primary}" stroke-width="4"/>
     <path d="M104 40 L144 40 M104 52 L144 52" stroke="${primary}" stroke-width="3.2" opacity="0.6"/>`);
+}
+
+// Une URL d'offre n'est consideree active que si elle pointe reellement
+// vers un vendeur : chaine non vide, differente de '#', en http(s).
+function hasActiveOfferUrl(url){
+  return typeof url === 'string' && url !== '' && url !== '#' && /^https?:\/\//i.test(url);
 }
 
 // Banque de visuels par clé (accent = couleur de marque/catégorie)
@@ -2145,7 +2294,7 @@ function catProductCard(p){
       <div class="product-tags"><span class="ptag ptag-n">${p.priority}</span><span class="ptag ptag-b">${p.category}</span></div>
       <div class="perf-bars">${bars||'<div class="perf-row" style="color:var(--gray);font-size:12px">Caractéristiques générales</div>'}</div>
       <div class="product-price-row"><div><div class="price-from">Dès</div><div><span class="price-main">${p.price}</span></div></div></div>
-      <a class="reco-cta cat-offer-btn" href="${p.affiliateUrl||'#'}" rel="noopener" onclick="trackEvent('affiliate_click',{product:'${p.name}',source:'catalogue'})">Voir l'offre</a>
+      ${hasActiveOfferUrl(p.affiliateUrl)?`<a class="reco-cta cat-offer-btn" href="${p.affiliateUrl}" target="_blank" rel="sponsored noopener noreferrer" onclick="trackEvent('affiliate_click',{product:'${p.name}',source:'catalogue'})">Voir l'offre</a>`:`<span class="reco-cta cat-offer-btn offer-soon" aria-disabled="true">Offre bientôt disponible</span>`}
       <button class="cat-compare-btn" data-id="${p.id}" onclick="addToComparison('${p.id}')">+ Ajouter à comparer</button>
     </div>
   </div>`;
@@ -2224,7 +2373,7 @@ function renderComparateur(){
   // CTA row
   table += '<div class="cd-cell cd-lbl">Offre</div>';
   prods.forEach(p=>{
-    table += `<div class="cd-cell"><a class="cd-offer" href="${p.affiliateUrl||'#'}" rel="noopener" onclick="trackEvent('affiliate_click',{product:'${p.name}',source:'comparateur'})">Voir l'offre</a></div>`;
+    table += `<div class="cd-cell">${hasActiveOfferUrl(p.affiliateUrl)?`<a class="cd-offer" href="${p.affiliateUrl}" target="_blank" rel="sponsored noopener noreferrer" onclick="trackEvent('affiliate_click',{product:'${p.name}',source:'comparateur'})">Voir l'offre</a>`:`<span class="cd-offer offer-soon" aria-disabled="true">Offre bientôt disponible</span>`}</div>`;
   });
   table += '</div></div>';
 
@@ -2249,7 +2398,7 @@ function renderComparateur(){
         <div class="cc-row col"><span>Avantages</span><span class="cc-pro">${p.advantages}</span></div>
         <div class="cc-row col"><span>Inconvénients</span><span class="cc-con">${p.disadvantages}</span></div>
       </div>
-      <a class="cd-offer" href="${p.affiliateUrl||'#'}" rel="noopener" onclick="trackEvent('affiliate_click',{product:'${p.name}',source:'comparateur_mobile'})">Voir l'offre</a>
+      ${hasActiveOfferUrl(p.affiliateUrl)?`<a class="cd-offer" href="${p.affiliateUrl}" target="_blank" rel="sponsored noopener noreferrer" onclick="trackEvent('affiliate_click',{product:'${p.name}',source:'comparateur_mobile'})">Voir l'offre</a>`:`<span class="cd-offer offer-soon" aria-disabled="true">Offre bientôt disponible</span>`}
     </div>`;
   });
   cards += '</div>';
@@ -2399,9 +2548,7 @@ function renderRecoCard(prod, cat, why, isTop) {
     <div class="reco-name">${prod.name}</div>
     <div class="reco-model">${prod.brand} · ${prod.price}</div>
     <div class="reco-why">${why}</div>
-    <a class="reco-cta" href="${href}" rel="noopener" onclick="trackEvent('affiliate_click',{product:'${prod.name}',category:'${cat}',budget:'${quizData.budget}'})">
-      Voir l'offre
-    </a>
+    ${hasActiveOfferUrl(href)?`<a class="reco-cta" href="${href}" target="_blank" rel="sponsored noopener noreferrer" onclick="trackEvent('affiliate_click',{product:'${prod.name}',category:'${cat}',budget:'${quizData.budget}'})">Voir l'offre</a>`:`<span class="reco-cta offer-soon" aria-disabled="true">Offre bientôt disponible</span>`}
     <button class="cat-compare-btn reco-compare-btn${inSel?' added':''}" data-id="${cid}" onclick="addRecoToComparison('${encoded}')">${btnLabel}</button>
   </div>`;
 }
@@ -2549,10 +2696,12 @@ function submitContact(){
   const name=document.getElementById('contactName').value.trim();
   const email=document.getElementById('contactEmail').value.trim();
   const msg=document.getElementById('contactMessage').value.trim();
+  const subjEl=document.getElementById('contactSubject');
+  const subj=(subjEl&&subjEl.value.trim())||'Message';
   if(!name||!email||!msg){kiqToast('Merci de remplir tous les champs.','error');return;}
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){kiqToast('Saisis une adresse email valide.','error');return;}
   // V1 sans backend : ouvre le client mail pré-rempli vers l'adresse KICKIQ.
-  const subject=encodeURIComponent('Contact KICKIQ — '+name);
+  const subject=encodeURIComponent('Contact KICKIQ — '+subj+' — '+name);
   const body=encodeURIComponent(msg+'\n\n—\nNom : '+name+'\nEmail : '+email);
   trackEvent('contact_submit',{});
   window.location.href='mailto:contact@kickiq.eu?subject='+subject+'&body='+body;
