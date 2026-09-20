@@ -475,6 +475,9 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
 .cd-offer{display:inline-block;width:100%;text-align:center;font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--black);background:var(--neon);padding:10px 16px;border-radius:2px;text-decoration:none;transition:all 0.2s}
 .cd-offer:hover{background:var(--neon2)}
 .offer-soon{background:rgba(180,255,46,0.18);color:var(--gray2);cursor:default;pointer-events:none}
+:focus-visible{outline:2px solid var(--neon);outline-offset:2px}
+.form-input:focus-visible,.form-textarea:focus-visible{outline:2px solid var(--neon);outline-offset:1px}
+input[type=range]:focus-visible{outline:2px solid var(--neon);outline-offset:4px}
 
 /* ── COMPARATEUR : CARTES EMPILÉES (MOBILE) ── */
 .compare-cards{display:none;flex-direction:column;gap:16px}
@@ -898,7 +901,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
 <body>
 <!-- NAV -->
 <nav id="mainNav">
-  <div class="nav-logo" onclick="showPage('home')">KICK<span>IQ</span></div>
+  <div role="button" tabindex="0" class="nav-logo" onclick="showPage('home')">KICK<span>IQ</span></div>
   <div class="nav-center">
     <button class="nav-link" onclick="showPage('home')">Accueil</button>
     <button class="nav-link" onclick="showPage('comparateur')">Comparateur<span class="compare-count">0</span></button>
@@ -915,11 +918,11 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
 
 <div class="mob-drawer" id="mobDrawer">
   <div style="margin-bottom:8px;font-family:'Space Mono','Courier New',Courier,monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--neon)">Navigation</div>
-  <div class="mob-link" onclick="showPage('home');toggleMob()"><span class="mob-link-icon">🏠</span><span class="mob-link-name">Accueil</span></div>
-  <div class="mob-link" onclick="showPage('comparateur');toggleMob()"><span class="mob-link-icon">📊</span><span class="mob-link-name">Comparateur</span><span class="compare-count">0</span></div>
-  <div class="mob-link" onclick="showPage('equipements');toggleMob()"><span class="mob-link-icon">👟</span><span class="mob-link-name">Catalogue</span></div>
-  <div class="mob-link" onclick="showPage('about');toggleMob()"><span class="mob-link-icon">💡</span><span class="mob-link-name">À propos</span></div>
-  <div class="mob-link" onclick="showPage('contact');toggleMob()"><span class="mob-link-icon">✉️</span><span class="mob-link-name">Contact</span></div>
+  <div role="button" tabindex="0" class="mob-link" onclick="showPage('home');toggleMob()"><span class="mob-link-icon">🏠</span><span class="mob-link-name">Accueil</span></div>
+  <div role="button" tabindex="0" class="mob-link" onclick="showPage('comparateur');toggleMob()"><span class="mob-link-icon">📊</span><span class="mob-link-name">Comparateur</span><span class="compare-count">0</span></div>
+  <div role="button" tabindex="0" class="mob-link" onclick="showPage('equipements');toggleMob()"><span class="mob-link-icon">👟</span><span class="mob-link-name">Catalogue</span></div>
+  <div role="button" tabindex="0" class="mob-link" onclick="showPage('about');toggleMob()"><span class="mob-link-icon">💡</span><span class="mob-link-name">À propos</span></div>
+  <div role="button" tabindex="0" class="mob-link" onclick="showPage('contact');toggleMob()"><span class="mob-link-icon">✉️</span><span class="mob-link-name">Contact</span></div>
   <div class="mob-ctas">
     <button class="btn-ghost" style="flex:1" onclick="showPage('equipements');toggleMob()">Catalogue</button>
     <button class="btn-neon" style="flex:1" onclick="showPage('quiz');toggleMob()">Mon Analyse</button>
@@ -946,7 +949,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
       <span class="trust-item"><span class="trust-dot"></span>100% gratuit</span>
     </div>
   </div>
-  <svg class="hero-pitch" viewBox="0 0 500 700" xmlns="http://www.w3.org/2000/svg">
+  <svg class="hero-pitch" aria-hidden="true" focusable="false" viewBox="0 0 500 700" xmlns="http://www.w3.org/2000/svg">
     <rect x="30" y="30" width="440" height="640" rx="4" fill="none" stroke="rgba(180,255,46,0.6)" stroke-width="1.5"/>
     <line x1="30" y1="350" x2="470" y2="350" stroke="rgba(180,255,46,0.4)" stroke-width="1"/>
     <circle cx="250" cy="350" r="60" fill="none" stroke="rgba(180,255,46,0.4)" stroke-width="1"/>
@@ -1005,10 +1008,10 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
     </div>
   </div>
   <div class="pitch-layout">
-    <div class="position-card" onclick="startQuizFromPos('Gardien')"><span class="pos-icon">🧤</span><div class="pos-name">Gardien</div><div class="pos-abbr">GK</div><div class="pos-sub">Grip · Protection</div></div>
-    <div class="position-card" onclick="startQuizFromPos('Défenseur')"><span class="pos-icon">🛡️</span><div class="pos-name">Défenseur</div><div class="pos-abbr">DC · DG · DD</div><div class="pos-sub">Stabilité · Duels</div></div>
-    <div class="position-card" onclick="startQuizFromPos('Milieu')"><span class="pos-icon">🔁</span><div class="pos-name">Milieu</div><div class="pos-abbr">MDC · MC · MOC</div><div class="pos-sub">Toucher · Volume</div></div>
-    <div class="position-card" onclick="startQuizFromPos('Attaquant')"><span class="pos-icon">⚡</span><div class="pos-name">Attaquant</div><div class="pos-abbr">AD · AG · BU</div><div class="pos-sub">Explosivité · Frappe</div></div>
+    <div role="button" tabindex="0" class="position-card" onclick="startQuizFromPos('Gardien')"><span class="pos-icon">🧤</span><div class="pos-name">Gardien</div><div class="pos-abbr">GK</div><div class="pos-sub">Grip · Protection</div></div>
+    <div role="button" tabindex="0" class="position-card" onclick="startQuizFromPos('Défenseur')"><span class="pos-icon">🛡️</span><div class="pos-name">Défenseur</div><div class="pos-abbr">DC · DG · DD</div><div class="pos-sub">Stabilité · Duels</div></div>
+    <div role="button" tabindex="0" class="position-card" onclick="startQuizFromPos('Milieu')"><span class="pos-icon">🔁</span><div class="pos-name">Milieu</div><div class="pos-abbr">MDC · MC · MOC</div><div class="pos-sub">Toucher · Volume</div></div>
+    <div role="button" tabindex="0" class="position-card" onclick="startQuizFromPos('Attaquant')"><span class="pos-icon">⚡</span><div class="pos-name">Attaquant</div><div class="pos-abbr">AD · AG · BU</div><div class="pos-sub">Explosivité · Frappe</div></div>
   </div>
 </section>
 
@@ -1021,10 +1024,10 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
     </div>
   </div>
   <div class="playstyle-grid">
-    <div class="playstyle-card" onclick="startQuizFromStyle('Vitesse')"><div class="ps-icon">⚡</div><div class="ps-name">Vitesse</div><div class="ps-tag">Explosivité · Appuis</div></div>
-    <div class="playstyle-card" onclick="startQuizFromStyle('Technique')"><div class="ps-icon">🎯</div><div class="ps-name">Technique</div><div class="ps-tag">Toucher · Passe</div></div>
-    <div class="playstyle-card" onclick="startQuizFromStyle('Puissance')"><div class="ps-icon">💥</div><div class="ps-name">Puissance</div><div class="ps-tag">Impact · Duel</div></div>
-    <div class="playstyle-card" onclick="startQuizFromStyle('Polyvalent')"><div class="ps-icon">🔄</div><div class="ps-name">Polyvalent</div><div class="ps-tag">Équilibre · Adaptation</div></div>
+    <div role="button" tabindex="0" class="playstyle-card" onclick="startQuizFromStyle('Vitesse')"><div class="ps-icon">⚡</div><div class="ps-name">Vitesse</div><div class="ps-tag">Explosivité · Appuis</div></div>
+    <div role="button" tabindex="0" class="playstyle-card" onclick="startQuizFromStyle('Technique')"><div class="ps-icon">🎯</div><div class="ps-name">Technique</div><div class="ps-tag">Toucher · Passe</div></div>
+    <div role="button" tabindex="0" class="playstyle-card" onclick="startQuizFromStyle('Puissance')"><div class="ps-icon">💥</div><div class="ps-name">Puissance</div><div class="ps-tag">Impact · Duel</div></div>
+    <div role="button" tabindex="0" class="playstyle-card" onclick="startQuizFromStyle('Polyvalent')"><div class="ps-icon">🔄</div><div class="ps-name">Polyvalent</div><div class="ps-tag">Équilibre · Adaptation</div></div>
   </div>
 </section>
 
@@ -1080,10 +1083,10 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
     <div class="quiz-q-num">Question 02 / 06</div>
     <h2 class="quiz-q-title">Quel est <span>ton poste ?</span></h2>
     <div class="quiz-opts">
-      <div class="quiz-opt" onclick="pickOpt(this,'position','Gardien')"><div class="quiz-opt-icon">🧤</div><div><div class="quiz-opt-name">Gardien</div><div class="quiz-opt-sub">GK — Dernier rempart</div></div></div>
-      <div class="quiz-opt" onclick="pickOpt(this,'position','Défenseur')"><div class="quiz-opt-icon">🛡️</div><div><div class="quiz-opt-name">Défenseur</div><div class="quiz-opt-sub">DC, DG, DD — Bloc défensif</div></div></div>
-      <div class="quiz-opt" onclick="pickOpt(this,'position','Milieu')"><div class="quiz-opt-icon">🔁</div><div><div class="quiz-opt-name">Milieu</div><div class="quiz-opt-sub">MDC, MC, MOC — Cœur du jeu</div></div></div>
-      <div class="quiz-opt" onclick="pickOpt(this,'position','Attaquant')"><div class="quiz-opt-icon">⚡</div><div><div class="quiz-opt-name">Attaquant / Ailier</div><div class="quiz-opt-sub">AD, AG, BU — Ligne d'attaque</div></div></div>
+      <div role="button" tabindex="0" class="quiz-opt" onclick="pickOpt(this,'position','Gardien')"><div class="quiz-opt-icon">🧤</div><div><div class="quiz-opt-name">Gardien</div><div class="quiz-opt-sub">GK — Dernier rempart</div></div></div>
+      <div role="button" tabindex="0" class="quiz-opt" onclick="pickOpt(this,'position','Défenseur')"><div class="quiz-opt-icon">🛡️</div><div><div class="quiz-opt-name">Défenseur</div><div class="quiz-opt-sub">DC, DG, DD — Bloc défensif</div></div></div>
+      <div role="button" tabindex="0" class="quiz-opt" onclick="pickOpt(this,'position','Milieu')"><div class="quiz-opt-icon">🔁</div><div><div class="quiz-opt-name">Milieu</div><div class="quiz-opt-sub">MDC, MC, MOC — Cœur du jeu</div></div></div>
+      <div role="button" tabindex="0" class="quiz-opt" onclick="pickOpt(this,'position','Attaquant')"><div class="quiz-opt-icon">⚡</div><div><div class="quiz-opt-name">Attaquant / Ailier</div><div class="quiz-opt-sub">AD, AG, BU — Ligne d'attaque</div></div></div>
     </div>
   </div>
 
@@ -1092,9 +1095,9 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
     <div class="quiz-q-num">Question 03 / 06</div>
     <h2 class="quiz-q-title">Quel est <span>ton niveau ?</span></h2>
     <div class="quiz-opts cols3">
-      <div class="quiz-opt" onclick="pickOpt(this,'niveau','Débutant')"><div class="quiz-opt-icon">🌱</div><div><div class="quiz-opt-name">Débutant</div><div class="quiz-opt-sub">Je commence le football</div></div></div>
-      <div class="quiz-opt" onclick="pickOpt(this,'niveau','Loisir')"><div class="quiz-opt-icon">⚽</div><div><div class="quiz-opt-name">Loisir</div><div class="quiz-opt-sub">Je joue pour le plaisir</div></div></div>
-      <div class="quiz-opt" onclick="pickOpt(this,'niveau','Club')"><div class="quiz-opt-icon">🏆</div><div><div class="quiz-opt-name">Club</div><div class="quiz-opt-sub">Équipe, championnat ou compétition</div></div></div>
+      <div role="button" tabindex="0" class="quiz-opt" onclick="pickOpt(this,'niveau','Débutant')"><div class="quiz-opt-icon">🌱</div><div><div class="quiz-opt-name">Débutant</div><div class="quiz-opt-sub">Je commence le football</div></div></div>
+      <div role="button" tabindex="0" class="quiz-opt" onclick="pickOpt(this,'niveau','Loisir')"><div class="quiz-opt-icon">⚽</div><div><div class="quiz-opt-name">Loisir</div><div class="quiz-opt-sub">Je joue pour le plaisir</div></div></div>
+      <div role="button" tabindex="0" class="quiz-opt" onclick="pickOpt(this,'niveau','Club')"><div class="quiz-opt-icon">🏆</div><div><div class="quiz-opt-name">Club</div><div class="quiz-opt-sub">Équipe, championnat ou compétition</div></div></div>
     </div>
   </div>
 
@@ -1103,9 +1106,9 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
     <div class="quiz-q-num">Question 04 / 06</div>
     <h2 class="quiz-q-title">Ton terrain <span>principal ?</span></h2>
     <div class="quiz-opts cols3">
-      <div class="quiz-opt" onclick="pickOpt(this,'terrain','Naturel')"><div class="quiz-opt-icon">🌿</div><div><div class="quiz-opt-name">Gazon naturel</div><div class="quiz-opt-sub">FG — Terrain classique</div></div></div>
-      <div class="quiz-opt" onclick="pickOpt(this,'terrain','Synthétique')"><div class="quiz-opt-icon">🔲</div><div><div class="quiz-opt-name">Synthétique</div><div class="quiz-opt-sub">AG — Terrain plastique</div></div></div>
-      <div class="quiz-opt" onclick="pickOpt(this,'terrain','Indoor')"><div class="quiz-opt-icon">🏢</div><div><div class="quiz-opt-name">Indoor / Futsal</div><div class="quiz-opt-sub">IC — Salle ou surface dure</div></div></div>
+      <div role="button" tabindex="0" class="quiz-opt" onclick="pickOpt(this,'terrain','Naturel')"><div class="quiz-opt-icon">🌿</div><div><div class="quiz-opt-name">Gazon naturel</div><div class="quiz-opt-sub">FG — Terrain classique</div></div></div>
+      <div role="button" tabindex="0" class="quiz-opt" onclick="pickOpt(this,'terrain','Synthétique')"><div class="quiz-opt-icon">🔲</div><div><div class="quiz-opt-name">Synthétique</div><div class="quiz-opt-sub">AG — Terrain plastique</div></div></div>
+      <div role="button" tabindex="0" class="quiz-opt" onclick="pickOpt(this,'terrain','Indoor')"><div class="quiz-opt-icon">🏢</div><div><div class="quiz-opt-name">Indoor / Futsal</div><div class="quiz-opt-sub">IC — Salle ou surface dure</div></div></div>
     </div>
   </div>
 
@@ -1117,10 +1120,10 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
     <div id="qs5-standard">
       <h2 class="quiz-q-title">Ton style <span>de jeu ?</span></h2>
       <div class="quiz-opts">
-        <div class="quiz-opt" onclick="pickOpt(this,'style','Vitesse')"><div class="quiz-opt-icon">⚡</div><div><div class="quiz-opt-name">Vitesse & explosivité</div><div class="quiz-opt-sub">Accélérations, appels en profondeur</div></div></div>
-        <div class="quiz-opt" onclick="pickOpt(this,'style','Technique')"><div class="quiz-opt-icon">🎯</div><div><div class="quiz-opt-name">Technique & contrôle</div><div class="quiz-opt-sub">Toucher de balle, précision, passes</div></div></div>
-        <div class="quiz-opt" onclick="pickOpt(this,'style','Puissance')"><div class="quiz-opt-icon">💥</div><div><div class="quiz-opt-name">Puissance & physique</div><div class="quiz-opt-sub">Duels, frappes puissantes, impact</div></div></div>
-        <div class="quiz-opt" onclick="pickOpt(this,'style','Polyvalent')"><div class="quiz-opt-icon">🔄</div><div><div class="quiz-opt-name">Polyvalent</div><div class="quiz-opt-sub">Mélange de tout selon les situations</div></div></div>
+        <div role="button" tabindex="0" class="quiz-opt" onclick="pickOpt(this,'style','Vitesse')"><div class="quiz-opt-icon">⚡</div><div><div class="quiz-opt-name">Vitesse & explosivité</div><div class="quiz-opt-sub">Accélérations, appels en profondeur</div></div></div>
+        <div role="button" tabindex="0" class="quiz-opt" onclick="pickOpt(this,'style','Technique')"><div class="quiz-opt-icon">🎯</div><div><div class="quiz-opt-name">Technique & contrôle</div><div class="quiz-opt-sub">Toucher de balle, précision, passes</div></div></div>
+        <div role="button" tabindex="0" class="quiz-opt" onclick="pickOpt(this,'style','Puissance')"><div class="quiz-opt-icon">💥</div><div><div class="quiz-opt-name">Puissance & physique</div><div class="quiz-opt-sub">Duels, frappes puissantes, impact</div></div></div>
+        <div role="button" tabindex="0" class="quiz-opt" onclick="pickOpt(this,'style','Polyvalent')"><div class="quiz-opt-icon">🔄</div><div><div class="quiz-opt-name">Polyvalent</div><div class="quiz-opt-sub">Mélange de tout selon les situations</div></div></div>
       </div>
     </div>
 
@@ -1128,14 +1131,14 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
     <div id="qs5-gk" style="display:none">
       <h2 class="quiz-q-title">Ton style <span>de jeu ?</span></h2>
       <div class="quiz-opts">
-        <div class="quiz-opt" onclick="pickOpt(this,'style','GK_Offensif')">
+        <div role="button" tabindex="0" class="quiz-opt" onclick="pickOpt(this,'style','GK_Offensif')">
           <div class="quiz-opt-icon">🚀</div>
           <div>
             <div class="quiz-opt-name">Gardien offensif</div>
             <div class="quiz-opt-sub">N'hésites pas à sortir des cages, joues au pied</div>
           </div>
         </div>
-        <div class="quiz-opt" onclick="pickOpt(this,'style','GK_Defensif')">
+        <div role="button" tabindex="0" class="quiz-opt" onclick="pickOpt(this,'style','GK_Defensif')">
           <div class="quiz-opt-icon">🧱</div>
           <div>
             <div class="quiz-opt-name">Gardien défensif</div>
@@ -1151,10 +1154,10 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
     <div class="quiz-q-num">Question 06 / 06</div>
     <h2 class="quiz-q-title">Ton budget <span>équipement ?</span></h2>
     <div class="quiz-opts">
-      <div class="quiz-opt" onclick="pickOpt(this,'budget','<50')"><div class="quiz-opt-icon">💚</div><div><div class="quiz-opt-name">Moins de 50€</div><div class="quiz-opt-sub">Entrée de gamme, bon rapport qualité/prix</div></div></div>
-      <div class="quiz-opt" onclick="pickOpt(this,'budget','50-100')"><div class="quiz-opt-icon">⚽</div><div><div class="quiz-opt-name">50€ — 100€</div><div class="quiz-opt-sub">Milieu de gamme, bon confort</div></div></div>
-      <div class="quiz-opt" onclick="pickOpt(this,'budget','100-200')"><div class="quiz-opt-icon">⭐</div><div><div class="quiz-opt-name">100€ — 200€</div><div class="quiz-opt-sub">Gamme premium, hautes performances</div></div></div>
-      <div class="quiz-opt" onclick="pickOpt(this,'budget','>200')"><div class="quiz-opt-icon">🏆</div><div><div class="quiz-opt-name">Plus de 200€</div><div class="quiz-opt-sub">Top du marché, qualité maximale</div></div></div>
+      <div role="button" tabindex="0" class="quiz-opt" onclick="pickOpt(this,'budget','<50')"><div class="quiz-opt-icon">💚</div><div><div class="quiz-opt-name">Moins de 50€</div><div class="quiz-opt-sub">Entrée de gamme, bon rapport qualité/prix</div></div></div>
+      <div role="button" tabindex="0" class="quiz-opt" onclick="pickOpt(this,'budget','50-100')"><div class="quiz-opt-icon">⚽</div><div><div class="quiz-opt-name">50€ — 100€</div><div class="quiz-opt-sub">Milieu de gamme, bon confort</div></div></div>
+      <div role="button" tabindex="0" class="quiz-opt" onclick="pickOpt(this,'budget','100-200')"><div class="quiz-opt-icon">⭐</div><div><div class="quiz-opt-name">100€ — 200€</div><div class="quiz-opt-sub">Gamme premium, hautes performances</div></div></div>
+      <div role="button" tabindex="0" class="quiz-opt" onclick="pickOpt(this,'budget','>200')"><div class="quiz-opt-icon">🏆</div><div><div class="quiz-opt-name">Plus de 200€</div><div class="quiz-opt-sub">Top du marché, qualité maximale</div></div></div>
     </div>
   </div>
 
@@ -1183,7 +1186,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
     <!-- COMPAT SCORE -->
     <div class="compat-block" id="compatBlock">
       <div class="compat-score-wrap">
-        <svg class="compat-circle" viewBox="0 0 56 56">
+        <svg class="compat-circle" aria-hidden="true" focusable="false" viewBox="0 0 56 56">
           <circle class="compat-circle-bg" cx="28" cy="28" r="26"/>
           <circle class="compat-circle-fill" id="compatCircle" cx="28" cy="28" r="26"/>
         </svg>
@@ -1209,7 +1212,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
     <div class="reco-grid" id="recoAccessoires"></div>
   </div>
 
-  <div style="text-align:center;margin-bottom:32px"><a onclick="showPage('comparateur-info')" style="font-size:13px;color:var(--neon);text-decoration:none;cursor:pointer">Comprendre la sélection et le classement des produits</a></div>
+  <div style="text-align:center;margin-bottom:32px"><a role="link" tabindex="0" onclick="showPage('comparateur-info')" style="font-size:13px;color:var(--neon);text-decoration:none;cursor:pointer">Comprendre la sélection et le classement des produits</a></div>
 
   <div style="text-align:center;padding:36px;background:var(--card);border:1px solid var(--border);border-radius:4px">
     <div style="font-family:'Space Mono','Courier New',Courier,monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--neon);margin-bottom:10px">Tu veux affiner ?</div>
@@ -1224,7 +1227,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
 <!-- PAGE : COMPARATEUR -->
 <div class="page" id="page-comparateur">
 <section style="background:var(--black3);padding:80px 48px">
-  <div class="section-header"><div><div class="section-eyebrow">Comparateur</div><h2 class="section-title">Ma sélection <span class="dim">à comparer</span></h2><p class="section-sub">Compare jusqu'à 6 équipements côte à côte pour faire le bon choix.</p><p style="font-size:13px;margin-top:8px"><a onclick="showPage('comparateur-info')" style="color:var(--neon);text-decoration:none;cursor:pointer">Comment fonctionne le comparateur ?</a></p></div></div>
+  <div class="section-header"><div><div class="section-eyebrow">Comparateur</div><h2 class="section-title">Ma sélection <span class="dim">à comparer</span></h2><p class="section-sub">Compare jusqu'à 6 équipements côte à côte pour faire le bon choix.</p><p style="font-size:13px;margin-top:8px"><a role="link" tabindex="0" onclick="showPage('comparateur-info')" style="color:var(--neon);text-decoration:none;cursor:pointer">Comment fonctionne le comparateur ?</a></p></div></div>
   <div id="compareHost"></div>
   <div style="text-align:center;margin-top:36px"><p style="font-size:14px;color:var(--gray2);margin-bottom:14px">Tu ne sais pas par où commencer ?</p><button class="btn-neon" onclick="showPage('quiz');trackEvent('quiz_started',{source:'comparateur'})">⚽ Faire mon analyse personnalisée</button></div>
 </section>
@@ -1310,12 +1313,12 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
     <div class="contact-grid">
       <div>
         <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;color:var(--white);margin-bottom:24px">Écris-nous</h3>
-        <div class="form-field"><label class="form-label">Nom</label><input type="text" class="form-input" placeholder="Ton nom" id="contactName"></div>
-        <div class="form-field"><label class="form-label">Email</label><input type="email" class="form-input" placeholder="ton@email.com" id="contactEmail"></div>
-        <div class="form-field"><label class="form-label">Sujet</label><select class="form-input" id="contactSubject" style="cursor:pointer"><option value="">Sélectionne un sujet</option><option>Suggestion produit</option><option>Partenariat / Affiliation</option><option>Signaler une erreur</option><option>Question sur KICKIQ</option><option>Autre</option></select></div>
-        <div class="form-field"><label class="form-label">Message</label><textarea class="form-textarea" placeholder="Ton message..." id="contactMessage"></textarea></div>
+        <div class="form-field"><label class="form-label" for="contactName">Nom</label><input type="text" class="form-input" placeholder="Ton nom" id="contactName"></div>
+        <div class="form-field"><label class="form-label" for="contactEmail">Email</label><input type="email" class="form-input" placeholder="ton@email.com" id="contactEmail"></div>
+        <div class="form-field"><label class="form-label" for="contactSubject">Sujet</label><select class="form-input" id="contactSubject" style="cursor:pointer"><option value="">Sélectionne un sujet</option><option>Suggestion produit</option><option>Partenariat / Affiliation</option><option>Signaler une erreur</option><option>Question sur KICKIQ</option><option>Autre</option></select></div>
+        <div class="form-field"><label class="form-label" for="contactMessage">Message</label><textarea class="form-textarea" placeholder="Ton message..." id="contactMessage"></textarea></div>
         <button class="form-submit" onclick="submitContact()">Envoyer →</button>
-        <p style="font-size:11px;color:var(--gray);line-height:1.6;margin-top:12px">En cliquant sur « Envoyer », ton application de messagerie s'ouvrira avec un email prérempli. Aucune donnée saisie dans ces champs n'est automatiquement enregistrée sur un serveur KICKIQ. Consulte notre <a onclick="showPage('confidentialite')" style="color:var(--neon);text-decoration:none;cursor:pointer">politique de confidentialité</a>.</p>
+        <p style="font-size:11px;color:var(--gray);line-height:1.6;margin-top:12px">En cliquant sur « Envoyer », ton application de messagerie s'ouvrira avec un email prérempli. Aucune donnée saisie dans ces champs n'est automatiquement enregistrée sur un serveur KICKIQ. Consulte notre <a role="link" tabindex="0" onclick="showPage('confidentialite')" style="color:var(--neon);text-decoration:none;cursor:pointer">politique de confidentialité</a>.</p>
       </div>
       <div>
         <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;color:var(--white);margin-bottom:24px">Infos de contact</h3>
@@ -1343,7 +1346,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
     <div style="display:flex;flex-direction:column;gap:32px;font-size:15px;color:var(--gray2);line-height:1.8">
       <div>
         <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Éditeur du site</h3>
-        <p>Le site KICKIQ est édité par Lee-Morgan BONA, entrepreneur individuel (EI) exerçant sous le nom commercial KickIQ.<br>Adresse professionnelle : 25 Boulevard des Dames, 13002 Marseille, France.<br>SIREN : 103 684 510.<br>SIRET : 103 684 510 00011.<br>Immatriculation : Registre national des entreprises (RNE) et Registre du commerce et des sociétés (RCS) de Marseille.<br>Code APE : 47.91A — Vente à distance sur catalogue général.<br>TVA non applicable, article 293 B du CGI.<br>Email : <a href="mailto:contact@kickiq.eu" style="color:var(--neon);text-decoration:none">contact@kickiq.eu</a>.<br>Téléphone : <a href="tel:+33756937932" style="color:var(--neon);text-decoration:none">07 56 93 79 32</a>.<br>Directeur de la publication : Lee-Morgan BONA.</p>
+        <p>Le site KICKIQ est édité par Lee-Morgan BONA, entrepreneur individuel (EI) exerçant sous le nom commercial KickIQ.<br>Adresse professionnelle : 25 Boulevard des Dames, 13002 Marseille, France.<br>SIREN : 103 684 510.<br>SIRET : 103 684 510 00029.<br>Immatriculation : Registre national des entreprises (RNE) — 103 684 510 R.C.S. Marseille.<br>Code APE : 47.91A — Vente à distance sur catalogue général.<br>TVA non applicable, article 293 B du CGI.<br>Email : <a href="mailto:contact@kickiq.eu" style="color:var(--neon);text-decoration:none">contact@kickiq.eu</a>.<br>Téléphone : <a href="tel:+33756937932" style="color:var(--neon);text-decoration:none">07 56 93 79 32</a>.<br>Directeur de la publication : Lee-Morgan BONA.</p>
       </div>
       <div>
         <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Hébergement</h3>
@@ -1394,7 +1397,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
       <div>
         <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Cookies & mesure d'audience</h3>
         <p>Avec ton consentement uniquement, KICKIQ utilise Google Analytics 4 et Microsoft Clarity pour mesurer l'audience et l'usage du site (pages visitées, durée, origine, parcours de navigation). Aucun de ces outils n'est activé tant que tu n'as pas accepté via le bandeau de consentement.</p>
-        <p style="margin-top:10px">Tu peux accorder, refuser ou retirer ton consentement à tout moment. Le détail des cookies, leurs durées de conservation et le bouton de gestion se trouvent sur notre <a onclick="showPage('cookies')" style="color:var(--neon);text-decoration:none;cursor:pointer">politique cookies</a>.</p>
+        <p style="margin-top:10px">Tu peux accorder, refuser ou retirer ton consentement à tout moment. Le détail des cookies, leurs durées de conservation et le bouton de gestion se trouvent sur notre <a role="link" tabindex="0" onclick="showPage('cookies')" style="color:var(--neon);text-decoration:none;cursor:pointer">politique cookies</a>.</p>
       </div>
       <div>
   <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Prestataires techniques et transferts</h3>
@@ -1412,7 +1415,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
       <div>
         <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Liens commerciaux et affiliation</h3>
         <p>À la date de mise à jour de cette politique, aucun lien marchand actif n'est présent sur KICKIQ. KICKIQ prévoit de se rémunérer ultérieurement par affiliation. Lorsqu'un lien affilié sera activé, il pourra permettre à KICKIQ de percevoir une commission si un achat est réalisé par son intermédiaire, sans surcoût ajouté par KICKIQ. Les liens commerciaux actifs seront identifiés de manière transparente.</p>
-        <p style="font-size:12px;color:var(--gray);margin-top:8px">Dernière mise à jour : 27 août 2026.</p>
+        <p style="font-size:12px;color:var(--gray);margin-top:8px">Dernière mise à jour : 20 septembre 2026.</p>
       </div>
     </div>
   </div>
@@ -1493,7 +1496,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
       </div>
       <div>
         <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Actualisation des informations</h3>
-        <p>Les fiches produits, caractéristiques et prix sont vérifiés et mis à jour manuellement, sans actualisation automatique en temps réel. Les vérifications sont effectuées lors de l'ajout ou de la modification d'un produit, lors de l'activation ou de la modification d'un lien marchand et lorsqu'une information inexacte est signalée. Aucune périodicité fixe n'est garantie. Dernière mise à jour de cette rubrique : 26 août 2026.</p>
+        <p>Les fiches produits, caractéristiques et prix sont vérifiés et mis à jour manuellement, sans actualisation automatique en temps réel. Les vérifications sont effectuées lors de l'ajout ou de la modification d'un produit, lors de l'activation ou de la modification d'un lien marchand et lorsqu'une information inexacte est signalée. Aucune périodicité fixe n'est garantie. Dernière mise à jour de cette rubrique : 20 septembre 2026.</p>
         <p style="margin-top:10px">Pour signaler une information inexacte ou obsolète, contacte KICKIQ à <a href="mailto:contact@kickiq.eu" style="color:var(--neon);text-decoration:none">contact@kickiq.eu</a>.</p>
       </div>
     </div>
@@ -1548,7 +1551,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
       <div>
         <h3 style="font-family:'Barlow Condensed','Arial Narrow',Arial,sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--white);margin-bottom:10px">Droit applicable et contact</h3>
         <p>Les présentes conditions sont soumises au droit français. Toute difficulté peut d'abord être signalée à KICKIQ à <a href="mailto:contact@kickiq.eu" style="color:var(--neon);text-decoration:none">contact@kickiq.eu</a> afin de rechercher une solution amiable. À défaut, les règles ordinaires de compétence juridictionnelle s'appliquent.</p>
-        <p style="font-size:12px;color:var(--gray);margin-top:8px">Dernière mise à jour : 27 août 2026.</p>
+        <p style="font-size:12px;color:var(--gray);margin-top:8px">Dernière mise à jour : 20 septembre 2026.</p>
       </div>
     </div>
   </div>
@@ -1564,13 +1567,13 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:56px 4
         <a href="mailto:contact@kickiq.eu" class="social-btn" title="Email">✉️</a>
       </div>
     </div>
-    <div class="footer-col"><h4>Plateforme</h4><ul class="footer-links"><li><a onclick="showPage('quiz')">Analyse profil</a></li><li><a onclick="showPage('comparateur')">Comparateur</a></li><li><a onclick="showPage('equipements')">Catalogue</a></li></ul></div>
-    <div class="footer-col"><h4>Profils</h4><ul class="footer-links"><li><a onclick="showPage('home')">Par poste</a></li><li><a onclick="showPage('home')">Par style</a></li></ul></div>
-    <div class="footer-col"><h4>Info</h4><ul class="footer-links"><li><a onclick="showPage('about')">À propos</a></li><li><a onclick="showPage('comparateur-info')">Fonctionnement du comparateur</a></li><li><a onclick="showPage('contact')">Contact</a></li><li><a onclick="showPage('mentions')">Mentions légales</a></li><li><a onclick="showPage('confidentialite')">Confidentialité</a></li><li><a onclick="showPage('cookies')">Politique cookies</a></li><li><a onclick="showPage('cgu')">Conditions d'utilisation</a></li></ul></div>
+    <div class="footer-col"><h4>Plateforme</h4><ul class="footer-links"><li><a role="link" tabindex="0" onclick="showPage('quiz')">Analyse profil</a></li><li><a role="link" tabindex="0" onclick="showPage('comparateur')">Comparateur</a></li><li><a role="link" tabindex="0" onclick="showPage('equipements')">Catalogue</a></li></ul></div>
+    <div class="footer-col"><h4>Profils</h4><ul class="footer-links"><li><a role="link" tabindex="0" onclick="showPage('home')">Par poste</a></li><li><a role="link" tabindex="0" onclick="showPage('home')">Par style</a></li></ul></div>
+    <div class="footer-col"><h4>Info</h4><ul class="footer-links"><li><a role="link" tabindex="0" onclick="showPage('about')">À propos</a></li><li><a role="link" tabindex="0" onclick="showPage('comparateur-info')">Fonctionnement du comparateur</a></li><li><a role="link" tabindex="0" onclick="showPage('contact')">Contact</a></li><li><a role="link" tabindex="0" onclick="showPage('mentions')">Mentions légales</a></li><li><a role="link" tabindex="0" onclick="showPage('confidentialite')">Confidentialité</a></li><li><a role="link" tabindex="0" onclick="showPage('cookies')">Politique cookies</a></li><li><a role="link" tabindex="0" onclick="showPage('cgu')">Conditions d'utilisation</a></li></ul></div>
   </div>
   <div class="footer-bottom">
     <div class="footer-copy">© 2026 KICKIQ · Comparateur d'équipements de football</div>
-    <div class="footer-legal"><a onclick="showPage('confidentialite')">Confidentialité</a><a onclick="showPage('mentions')">Mentions légales</a><a onclick="showPage('cookies')">Cookies</a><a onclick="showPage('cgu')">CGU</a><a onclick="if(typeof tarteaucitron!=='undefined'){tarteaucitron.userInterface.openPanel();}" style="cursor:pointer">Gérer mes cookies</a></div>
+    <div class="footer-legal"><a role="link" tabindex="0" onclick="showPage('confidentialite')">Confidentialité</a><a role="link" tabindex="0" onclick="showPage('mentions')">Mentions légales</a><a role="link" tabindex="0" onclick="showPage('cookies')">Cookies</a><a role="link" tabindex="0" onclick="showPage('cgu')">CGU</a><a role="link" tabindex="0" onclick="if(typeof tarteaucitron!=='undefined'){tarteaucitron.userInterface.openPanel();}" style="cursor:pointer">Gérer mes cookies</a></div>
   </div>
 </footer>
 
@@ -1872,7 +1875,7 @@ function launchLoadingScreen() {
 //  viewBox commun 240×150, preserveAspectRatio constant.
 // ════════════════════════════════════════════════════════════
 function svgWrap(inner, vb){
-  return `<div class="pv-wrap"><svg class="pv-boot" viewBox="${vb||'0 0 240 150'}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" fill="none" stroke-linecap="round" stroke-linejoin="round">${inner}</svg></div>`;
+  return `<div class="pv-wrap"><svg class="pv-boot" aria-hidden="true" focusable="false" viewBox="${vb||'0 0 240 150'}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" fill="none" stroke-linecap="round" stroke-linejoin="round">${inner}</svg></div>`;
 }
 // fill subtil dérivé de l'accent (zone de couleur derrière le trait)
 function tint(c){ return c; }
@@ -2728,6 +2731,19 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'){const d=document.getElementById('mobDrawer');if(d&&d.classList.contains('open'))toggleMob();}
+});
+
+// Accessibilite clavier : les elements rendus focusables via role/tabindex
+// reagissent a Entree et Espace comme un lien ou un bouton natif.
+document.addEventListener('keydown',function(e){
+  if(e.key!=='Enter' && e.key!==' ' && e.key!=='Spacebar') return;
+  const t=e.target;
+  if(!t || !t.getAttribute) return;
+  const r=t.getAttribute('role');
+  if((r==='link'||r==='button') && t.getAttribute('tabindex')==='0'){
+    e.preventDefault();
+    t.click();
+  }
 });
 </script>
 
